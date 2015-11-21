@@ -1,5 +1,4 @@
 <?php
-// src/OC/UserBundle/Controller/SecurityController.php;
 
 namespace ProjetVoxel\UserBundle\Controller;
 
@@ -21,7 +20,7 @@ class SecurityController extends Controller
     // (mauvais mot de passe par exemple)
     $authenticationUtils = $this->get('security.authentication_utils');
 
-    return $this->render('OCUserBundle:Security:login.html.twig', array(
+    return $this->render('ProjetVoxelUserBundle:Security:login.html.twig', array(
       'last_username' => $authenticationUtils->getLastUsername(),
       'error'         => $authenticationUtils->getLastAuthenticationError(),
     ));
