@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new AppBundle\AppBundle(),
             new ProjetVoxel\EmploiBundle\ProjetVoxelEmploiBundle(),
             new ProjetVoxel\UserBundle\ProjetVoxelUserBundle(),
             new ProjetVoxel\CoreBundle\ProjetVoxelCoreBundle(),
