@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new ProjetVoxel\EmploiBundle\ProjetVoxelEmploiBundle(),
             new ProjetVoxel\UserBundle\ProjetVoxelUserBundle(),
+            new ProjetVoxel\CoreBundle\ProjetVoxelCoreBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

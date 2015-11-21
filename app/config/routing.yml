@@ -1,3 +1,7 @@
+projet_voxel_core:
+    resource: "@ProjetVoxelCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
 projet_voxel_emploi:
     resource: "@ProjetVoxelEmploiBundle/Resources/config/routing.yml"
     prefix:   /
