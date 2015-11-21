@@ -1,3 +1,7 @@
+projet_voxel_emploi:
+    resource: "@ProjetVoxelEmploiBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
