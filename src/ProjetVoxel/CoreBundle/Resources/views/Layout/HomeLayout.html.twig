@@ -13,6 +13,60 @@
     <header>
 	<img id="banniere" class="header-logo" src="{{ app.request.basepath }}/img/Logos/fond.gif" style="width: 1400px;"></img>
         <img id="banniere" class="header-logo" src="{{ app.request.basepath }}/img/Logos/LogotransparantWhite.png"></img>
+        <div class="bandeauCo">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <div class="imgProfilNav">
+                {% if false %} {# TODO Si a une image #}
+                <a>
+                    <img src="{# Path img profil#}" alt="..." class="avatar-layout img-circle">
+                </a>
+                {% else %}
+                <a>
+                    <i class="fa fa-user fa-lg vatar-layout img-circle"></i>
+                </a>
+                {% endif %}
+            </div>
+            <p>{{ app.user.username }}</p>
+            <div class="iconesUser">
+                <a href="{# Path Notif #}#">
+                    <i id="social" class="fa fa-bell fa-lg"></i>
+                </a>
+                <a href="{# Path Mess #}#">
+                    <i id="social" class="fa fa-envelope fa-lg"></i>
+                </a>
+                <a href="{# Path profil #}#">
+                    <i id="social" class="fa fa-cog fa-lg"></i>
+                </a>
+                <a href="{{ path('fos_user_security_logout') }}#">
+                    <i id="social" class="fa fa-sign-out fa-lg"></i>
+                </a>
+            </div>
+            {% else %}
+            <div class="imgProfilNav">
+                <a>
+                    <i class="fa fa-sign-in fa-lg vatar-layout img-circle"></i>
+                </a>
+            </div>
+            <a href="{{ path('fos_user_security_login') }}" id="connexionLink">Connexion</a>
+            {% endif %}
+        </div>
+        <div id="bandeauCoReduit">
+            <div class="imgProfilNav">
+                {% if false %}{# TODO Si connécté et a une image #}
+                <a>
+                    <img src="{# Path img profil#}" alt="..." class="avatar-layout img-circle">
+                </a>
+                {% elseif is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <a>
+                    <i class="fa fa-user fa-lg vatar-layout img-circle"></i>
+                </a>
+                {% else %}
+                <a href="{{ path('fos_user_security_login') }}" >
+                    <i class="fa fa-sign-in fa-lg vatar-layout img-circle"></i>
+                </a>
+                {% endif %}
+            </div>
+        </div>
 
     </header>
     <nav id="navbar1" class="navbar navbar-inverse">
