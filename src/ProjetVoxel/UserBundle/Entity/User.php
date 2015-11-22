@@ -21,6 +21,11 @@ class User implements UserInterface
     private $username;
 
     /**
+     * @ORM\OneToMany(targetEntity="ProjetVoxel\UserBundle\Entity\Company", mappedBy="creator")
+     */
+    private $CreatedCompany;
+
+    /**
      * @var string
      */
     private $password;
@@ -140,6 +145,14 @@ class User implements UserInterface
     public function getRoles()
     {
         return $this->roles;
+    }
+
+    public function getCreatedCompany(){
+        return $this->CreatedCompany;
+    }
+
+    public function setCreatedCompany($CreatedCompany){
+        $this->CreatedCompany = $CreatedCompany;
     }
 
     public function eraseCredentials()
