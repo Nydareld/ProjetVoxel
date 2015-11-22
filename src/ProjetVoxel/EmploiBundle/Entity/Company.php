@@ -37,10 +37,20 @@ class Company
     private $activity;
 
     /**
-     * @ManyToOne(targetEntity="ProjetVoxel\UserBundle\Entity\User", inversedBy="CreatedCompany")
+     * @ORM\ManyToOne(targetEntity="ProjetVoxel\UserBundle\Entity\User", inversedBy="CreatedCompany")
      */
 
     private $creator;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ProjetVoxel\UserBundle\Entity\User", mappedBy="managedCompany")
+     */
+    private $manager;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ProjetVoxel\UserBundle\Entity\User", mappedBy="ownedCompany")
+     */
+    private $owner;
 
     /**
      * @var string
@@ -169,6 +179,22 @@ class Company
 
     public function setCreator($creator){
         $this->creator = $creator;
+    }
+
+    public function getManager(){
+        return $this->manager;
+    }
+
+    public function setManager($manager){
+        $this->manager = $manager;
+    }
+
+    public function getOwner(){
+        return $this->owner;
+    }
+
+    public function setOwner($owner){
+        $this->owner = $owner;
     }
 }
 

@@ -28,6 +28,16 @@ use Doctrine\ORM\Mapping as ORM;
      private $CreatedCompany;
 
      /**
+      * @ORM\ManyToOne(targetEntity="ProjetVoxel\EmploiBundle\Entity\Company", inversedBy="manager")
+      */
+     private $managedCompany;
+
+     /**
+      * @ORM\ManyToOne(targetEntity="ProjetVoxel\EmploiBundle\Entity\Company", inversedBy="owner")
+      * */
+     private $ownedCompany;
+
+     /**
       * Get id
       *
       * @return integer
@@ -43,5 +53,21 @@ use Doctrine\ORM\Mapping as ORM;
 
      public function setCreatedCompany($CreatedCompany){
          $this->CreatedCompany = $CreatedCompany;
+     }
+
+     public function getManagedCompany(){
+         return $this->managedCompany;
+     }
+
+     public function setManagedCompany($managedCompany){
+         $this->managedCompany = $managedCompany;
+     }
+
+     public function getOwnedCompany(){
+         return $this->ownedCompany;
+     }
+
+     public function setOwnedCompany($ownedCompany){
+         $this->ownedCompany = $ownedCompany;
      }
  }
