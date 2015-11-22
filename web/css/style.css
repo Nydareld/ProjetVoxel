@@ -245,6 +245,26 @@ div.file-input{
     padding-left: 15px;
 }
 
+#bandeauCoReduit{
+    position: fixed;
+    top:60px;
+    right: 0px;
+    background-color: #111;
+    width: 60px;
+    height: 60px;
+    border-bottom: 4px #0066FF solid;
+    border-left: 4px #0066FF solid;
+}
+#bandeauCoReduit .imgProfilNav{
+    top:5px;
+}
+#bandeauCoReduit .imgProfilNav a{
+    color: #BBB;
+}
+#bandeauCoReduit .imgProfilNav a:hover{
+    color: #999;
+}
+
 /*
 Orange : ff712d
 Marron : 695d45*/
