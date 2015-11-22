@@ -4,7 +4,7 @@ projet_voxel_core:
 
 projet_voxel_emploi:
     resource: "@ProjetVoxelEmploiBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /emploi/
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
