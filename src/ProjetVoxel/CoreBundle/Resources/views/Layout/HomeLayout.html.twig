@@ -12,6 +12,13 @@
 <body>
     <header>
         <img id="banniere" class="header-logo" src="{{ app.request.basepath }}/img/Logos/Logotransparant.png"></img>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            Connecté en tant que {{ app.user.username }}
+            -
+            <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+        {% else %}
+            <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+        {% endif %}
     </header>
     <nav id="navbar1" class="navbar navbar-inverse">
         <div class="container-fluid">
