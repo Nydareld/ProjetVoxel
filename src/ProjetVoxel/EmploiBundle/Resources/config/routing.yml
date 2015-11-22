@@ -1,3 +1,6 @@
 projet_voxel_emploi_homepage:
     path:     /hello/{name}
     defaults: { _controller: ProjetVoxelEmploiBundle:Default:index }
+projet_voxel_emploi_createEntreprise:
+    path: /company/create
+    defaults: {_controller: ProjetVoxelEmploiBundle:Company:create}
