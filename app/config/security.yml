@@ -20,19 +20,17 @@ security:
             security: false
 
         main:
-            pattern: ^/
-            anonymous: true
-            provider:  in_memory
+            pattern:        ^/
+            anonymous:      true
+            provider:       main
             form_login:
-                login_path: login
-                check_path: login_check
-                provider: main
-                csrf_provider: security.csrf.token_manager
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
             logout:
-                path:   logout
-                target: /
+                path:       fos_user_security_logout
+                target:     /
             remember_me:
-                key: %secret%
+                key:        %secret%
             # activate different ways to authenticate
 
             # http_basic: ~
