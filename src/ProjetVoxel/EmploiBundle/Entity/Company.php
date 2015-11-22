@@ -45,12 +45,12 @@ class Company
     /**
      * @ORM\OneToMany(targetEntity="ProjetVoxel\UserBundle\Entity\User", mappedBy="managedCompany")
      */
-    private $manager;
+    private $manager = array();
 
     /**
      * @ORM\OneToMany(targetEntity="ProjetVoxel\UserBundle\Entity\User", mappedBy="ownedCompany")
      */
-    private $owner;
+    private $owner = array();
 
     /**
      * @var string
@@ -65,8 +65,7 @@ class Company
      * @ORM\Column(name="CreationDate", type="date")
      */
     private $creationDate;
-
-
+    
     /**
      * Get id
      *
