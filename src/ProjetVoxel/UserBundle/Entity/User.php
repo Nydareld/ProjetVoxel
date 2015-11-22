@@ -16,6 +16,11 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="ProjetVoxel\UserBundle\Entity\Company", mappedBy="creator")
+     */
+    private $CreatedCompany;
+
+    /**
      * Get id
      *
      * @return integer
@@ -25,4 +30,12 @@ class User extends BaseUser
         return $this->id;
     }
 
+
+    public function getCreatedCompany(){
+        return $this->CreatedCompany;
+    }
+
+    public function setCreatedCompany($CreatedCompany){
+        $this->CreatedCompany = $CreatedCompany;
+    }
 }

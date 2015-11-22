@@ -33,7 +33,15 @@ class Company
      *
      * @ORM\Column(name="Activity", type="string", length=255)
      */
+
     private $activity;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ProjetVoxel\UserBundle\Entity\User", inversedBy="CreatedCompany")
+     */
+
+    private $creator;
+
 
     /**
      * @var string
@@ -154,6 +162,14 @@ class Company
     public function getCreationDate()
     {
         return $this->creationDate;
+    }
+
+    public function getCreator(){
+        return $this->creator;
+    }
+
+    public function setCreator($creator){
+        $this->creator = $creator;
     }
 }
 
