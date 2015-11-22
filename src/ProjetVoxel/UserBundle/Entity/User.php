@@ -21,7 +21,7 @@ class User implements UserInterface
     private $username;
 
     /**
-     * @ORM\OneToMany(targetEntity="ProjetVoxel\UserBundle\Entity\Company", mappedBy="creator")
+     * @ORM\OneToMany(targetEntity="ProjetVoxel\UserBundle\Entity\Company", mappedBy="creator") ²
      */
     private $CreatedCompany;
 
