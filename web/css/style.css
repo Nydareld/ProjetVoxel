@@ -47,7 +47,7 @@ header .header-logo{
     margin-bottom: 0px;
 }
 #logoNavbar{
-    z-index: 100;
+    z-index: 100;http://pastebin.com/FkzxvWZD
     position: relative;
     top:0px;
     width: 60px;
@@ -196,7 +196,7 @@ div.file-input{
     margin-left: 2%;
     margin-right: 2%;
 }
-.bandeauCo{
+#bandeauCo{
     position: fixed;
     top: 0px;
     right: 0px;
@@ -209,14 +209,14 @@ div.file-input{
     border-bottom: 4px #0066FF solid;
     border-left: 4px #0066FF solid;
 }
-.bandeauCo p{
+#bandeauCo p{
     line-height: 22px;
     position: absolute;
     right: 17px;
     text-align: right;
     display: inline;
 }
-.bandeauCo a,.iconesUser{
+#bandeauCo a,.iconesUser{
     color: #BBB;
 }
 .imgProfilNav{

@@ -12,7 +12,7 @@
 <body>
     <header>
         <img id="banniere" class="header-logo" src="{{ app.request.basepath }}/img/Logos/Logotransparant.png"></img>
-        <div class="bandeauCo">
+        <div id="bandeauCo">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <div class="imgProfilNav">
                 {% if false %} {# TODO Si a une image #}
@@ -49,7 +49,7 @@
             <a href="{{ path('fos_user_security_login') }}" id="connexionLink">Connexion</a>
             {% endif %}
         </div>
-        <div id="bandeauCoReduit">
+        <div id="bandeauCoReduit" class="hidden">
             <div class="imgProfilNav">
                 {% if false %}{# TODO Si connécté et a une image #}
                 <a>
