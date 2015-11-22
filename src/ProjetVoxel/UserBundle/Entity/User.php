@@ -9,39 +9,39 @@ use Doctrine\ORM\Mapping as ORM;
  * User
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="ProjetVoxel\UserBundle\Entity\UserRepository")
+ * @ORM\Entity
  */
-class User extends BaseUser
-{
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
+ class User extends BaseUser
+ {
+     /**
+      * @var integer
+      *
+      * @ORM\Column(name="id", type="integer")
+      * @ORM\Id
+      * @ORM\GeneratedValue(strategy="AUTO")
+      */
+     protected $id;
 
-    /**
-     * @ORM\OneToMany(targetEntity="ProjetVoxel\EmploiBundle\Entity\Company", mappedBy="creator")
-     */
-    private $CreatedCompany;
+     /**
+      * @ORM\OneToMany(targetEntity="ProjetVoxel\EmploiBundle\Entity\Company", mappedBy="creator")
+      */
+     private $CreatedCompany;
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+     /**
+      * Get id
+      *
+      * @return integer
+      */
+     public function getId()
+     {
+         return $this->id;
+     }
 
-    public function getCreatedCompany(){
-        return $this->CreatedCompany;
-    }
+     public function getCreatedCompany(){
+         return $this->CreatedCompany;
+     }
 
-    public function setCreatedCompany($CreatedCompany){
-        $this->CreatedCompany = $CreatedCompany;
-    }
-}
+     public function setCreatedCompany($CreatedCompany){
+         $this->CreatedCompany = $CreatedCompany;
+     }
+ }
