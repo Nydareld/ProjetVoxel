@@ -148,7 +148,7 @@ footer a{
     -webkit-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;
     -o-transition-duration: 0.5s;
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 .social-fb:hover {
@@ -196,7 +196,50 @@ div.file-input{
     margin-left: 2%;
     margin-right: 2%;
 }
-
+.bandeauCo{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    padding-top: 7px;
+    padding-right: 10px;
+    color: #fff;
+    width: 200px;
+    height: 60px;
+    background-color: rgb(8, 8, 8);
+    border-bottom: 4px #0066FF solid;
+    border-left: 4px #0066FF solid;
+}
+.bandeauCo p{
+    line-height: 22px;
+    position: absolute;
+    right: 5px;
+    text-align: right;
+    display: inline;
+}
+.bandeauCo a,.iconesUser{
+    color: #BBB;
+}
+.imgProfilNav{
+    line-height: 45px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    left: 5px;
+    width: 45px;
+    height: 45px;
+    top: -2px;
+}
+.imgProfilNav i{
+    padding: 10px;
+    border-radius: 22px;
+    border: 4px #0066FF solid;
+}
+.iconesUser{
+    position: relative;
+    right: -10px;
+    top: 10px;
+    display: inline-block;
+}
 /*
 Orange : ff712d
 Marron : 695d45*/

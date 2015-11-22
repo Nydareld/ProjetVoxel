@@ -12,13 +12,38 @@
 <body>
     <header>
         <img id="banniere" class="header-logo" src="{{ app.request.basepath }}/img/Logos/Logotransparant.png"></img>
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            Connecté en tant que {{ app.user.username }}
-            -
-            <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
-        {% else %}
+        <div class="bandeauCo">
+            <div class="imgProfilNav">
+                {% if false %}
+                <a class="nopadding" href="{# Path profil#}#">
+                    <img src="{# Path img profil#}" alt="..." class="avatar-layout img-circle">
+                </a>
+                {% else %}
+                <a>
+                    <i class="fa fa-user fa-lg vatar-layout img-circle"></i>
+                </a>
+                {% endif %}
+            </div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <p>{{ app.user.username }}</p>
+            <div class="iconesUser">
+                <a href="{# Path Notif #}#">
+                    <i id="social" class="fa fa-bell fa-lg"></i>
+                </a>
+                <a href="{# Path Mess #}#">
+                    <i id="social" class="fa fa-envelope fa-lg"></i>
+                </a>
+                <a href="{# Path profil #}#">
+                    <i id="social" class="fa fa-cog fa-lg"></i>
+                </a>
+                <a href="{# Path profil #}#">
+                    <i id="social" class="fa fa-sign-out fa-lg"></i>
+                </a>
+            </div>
+            {% else %}
             <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-        {% endif %}
+            {% endif %}
+        </div>
     </header>
     <nav id="navbar1" class="navbar navbar-inverse">
         <div class="container-fluid">
