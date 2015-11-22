@@ -37,11 +37,10 @@ class Company
     private $activity;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ProjetVoxel\UserBundle\Entity\User", inversedBy="CreatedCompany")
+     * @ManyToOne(targetEntity="ProjetVoxel\UserBundle\Entity\User", inversedBy="CreatedCompany")
      */
 
     private $creator;
-
 
     /**
      * @var string
