@@ -42,6 +42,15 @@ class Company
 
     private $creator;
 
+    /**
+     * @ORM\OneToMany(targetEntity="ProjetVoxel\UserBundle\Entity\User", mappedBy="managedCompany")
+     */
+    private $manager = array();
+
+    /**
+     * @ORM\OneToMany(targetEntity="ProjetVoxel\UserBundle\Entity\User", mappedBy="ownedCompany")
+     */
+    private $owner = array();
 
     /**
      * @var string
@@ -56,8 +65,7 @@ class Company
      * @ORM\Column(name="CreationDate", type="date")
      */
     private $creationDate;
-
-
+    
     /**
      * Get id
      *
@@ -170,6 +178,22 @@ class Company
 
     public function setCreator($creator){
         $this->creator = $creator;
+    }
+
+    public function getManager(){
+        return $this->manager;
+    }
+
+    public function setManager($manager){
+        $this->manager = $manager;
+    }
+
+    public function getOwner(){
+        return $this->owner;
+    }
+
+    public function setOwner($owner){
+        $this->owner = $owner;
     }
 }
 

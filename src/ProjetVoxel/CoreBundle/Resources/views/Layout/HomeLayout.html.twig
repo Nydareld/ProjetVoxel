@@ -11,7 +11,8 @@
 </head>
 <body>
     <header>
-        <img id="banniere" class="header-logo" src="{{ app.request.basepath }}/img/Logos/Logotransparant.png"></img>
+	    <img id="banniere" class="header-logo" src="{{ app.request.basepath }}/img/Logos/fond.gif" style="width: 1400px;"></img>
+        <img id="banniere" class="header-logo" src="{{ app.request.basepath }}/img/Logos/LogotransparantWhite.png"></img>
         <div id="bandeauCo">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <div class="imgProfilNav">

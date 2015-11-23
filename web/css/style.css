@@ -196,6 +196,12 @@ div.file-input{
     margin-left: 2%;
     margin-right: 2%;
 }
+#banniere{
+    z-index: 1;
+}
+#bandeauCo{
+    z-index: 15;
+}
 #bandeauCo, #bandeauCoBis{
     position: fixed;
     top: 0px;
