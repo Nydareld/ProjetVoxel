@@ -285,6 +285,10 @@ div.file-input{
     height: 60px;
     padding-top: 5px;
 }
+.TA100{
+    max-width: 100%;
+    min-height: 200px;
+}
 
 /*
 Orange : ff712d
