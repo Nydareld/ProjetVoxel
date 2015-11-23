@@ -5,12 +5,15 @@ jQuery(document).ready(function() {
       if (jQuery(window).scrollTop() > navpos.top-40) {
           jQuery('#navbar1').addClass('navbar-fixed-top');
           jQuery('#bandeauCoReduit').removeClass('hidden');
+          jQuery('#bandeauLogReduit').removeClass('hidden');
           jQuery('#bandeauCo').addClass('hidden');
        }
        else {
            jQuery('#navbar1').removeClass('navbar-fixed-top');
            jQuery('#bandeauCo').removeClass('hidden');
            jQuery('#bandeauCoReduit').addClass('hidden');
+           jQuery('#bandeauLogReduit').addClass('hidden');
+           jQuery('#bandeauCoBis').addClass('hidden');
        }
     });
 });

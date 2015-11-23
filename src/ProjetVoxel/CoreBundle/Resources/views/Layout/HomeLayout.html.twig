@@ -49,23 +49,62 @@
             <a href="{{ path('fos_user_security_login') }}" id="connexionLink">Connexion</a>
             {% endif %}
         </div>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         <div id="bandeauCoReduit" class="hidden">
             <div class="imgProfilNav">
-                {% if false %}{# TODO Si connécté et a une image #}
+                {% if false %}{# TODO Si a une image #}
                 <a>
                     <img src="{# Path img profil#}" alt="..." class="avatar-layout img-circle">
                 </a>
-                {% elseif is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {% else %}
                 <a>
                     <i class="fa fa-user fa-lg vatar-layout img-circle"></i>
-                </a>
-                {% else %}
-                <a href="{{ path('fos_user_security_login') }}" >
-                    <i class="fa fa-sign-in fa-lg vatar-layout img-circle"></i>
                 </a>
                 {% endif %}
             </div>
         </div>
+        <div id="bandeauCoBis" class="hidden">
+            <div class="imgProfilNav">
+                {% if false %} {# TODO Si a une image #}
+                <a>
+                    <img src="{# Path img profil#}" alt="..." class="avatar-layout img-circle">
+                </a>
+                {% else %}
+                <a>
+                    <i class="fa fa-user fa-lg vatar-layout img-circle"></i>
+                </a>
+                {% endif %}
+            </div>
+            <p>{{ app.user.username }}</p>
+            <div class="iconesUser">
+                <a href="{# Path Notif #}#">
+                    <i id="social" class="fa fa-bell fa-lg"></i>
+                </a>
+                <a href="{# Path Mess #}#">
+                    <i id="social" class="fa fa-envelope fa-lg"></i>
+                </a>
+                <a href="{# Path profil #}#">
+                    <i id="social" class="fa fa-cog fa-lg"></i>
+                </a>
+                <a href="{{ path('fos_user_security_logout') }}#">
+                    <i id="social" class="fa fa-sign-out fa-lg"></i>
+                </a>
+            </div>
+            <div id="FlecheFermer" class="imgProfilNav">
+                <a>
+                    <i class="fa fa-arrow-up fa-lg vatar-layout img-circle"></i>
+                </a>
+            </div>
+        </div>
+        {% else %}
+        <div id="bandeauLogReduit" class="hidden">
+            <div class="imgProfilNav">
+                <a href="{{ path('fos_user_security_login') }}" >
+                    <i class="fa fa-sign-in fa-lg vatar-layout img-circle"></i>
+                </a>
+            </div>
+        </div>
+        {% endif %}
 
     </header>
     <nav id="navbar1" class="navbar navbar-inverse">
@@ -121,6 +160,7 @@
 
     <script src="{{ app.request.basepath }}/lib/jquery/jquery-1.11.2.min.js"></script>
     <script src="{{ app.request.basepath }}/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ app.request.basepath }}/js/expandBandeau.js"></script>
     <script src="{{ app.request.basepath }}/js/navscroll.js"></script>
 
     <script>

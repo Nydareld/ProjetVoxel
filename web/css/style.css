@@ -196,7 +196,7 @@ div.file-input{
     margin-left: 2%;
     margin-right: 2%;
 }
-#bandeauCo{
+#bandeauCo, #bandeauCoBis{
     position: fixed;
     top: 0px;
     right: 0px;
@@ -209,15 +209,18 @@ div.file-input{
     border-bottom: 4px #0066FF solid;
     border-left: 4px #0066FF solid;
 }
-#bandeauCo p{
+#bandeauCo p, #bandeauCoBis p{
     line-height: 22px;
     position: absolute;
     right: 17px;
     text-align: right;
     display: inline;
 }
-#bandeauCo a,.iconesUser{
+#bandeauCo a,.iconesUser, #bandeauCoBis a{
     color: #BBB;
+}
+#bandeauCoBis{
+    top: 60px;
 }
 .imgProfilNav{
     line-height: 45px;
@@ -245,7 +248,7 @@ div.file-input{
     padding-left: 15px;
 }
 
-#bandeauCoReduit{
+#bandeauCoReduit,#bandeauLogReduit{
     position: fixed;
     top:60px;
     right: 0px;
@@ -255,14 +258,26 @@ div.file-input{
     border-bottom: 4px #0066FF solid;
     border-left: 4px #0066FF solid;
 }
-#bandeauCoReduit .imgProfilNav{
+#bandeauCoReduit .imgProfilNav, #bandeauLogReduit .imgProfilNav{
     top:5px;
 }
-#bandeauCoReduit .imgProfilNav a{
+#bandeauCoReduit .imgProfilNav a, #bandeauLogReduit .imgProfilNav a{
     color: #BBB;
 }
-#bandeauCoReduit .imgProfilNav a:hover{
+#bandeauCoReduit .imgProfilNav a:hover, #bandeauLogReduit .imgProfilNav a:hover{
     color: #999;
+}
+#FlecheFermer{
+    position: fixed;
+    top:120px;
+    left:auto;
+    right: 0px;
+    background-color: #111;
+    border-bottom: 4px #0066FF solid;
+    border-left: 4px #0066FF solid;
+    width: 60px;
+    height: 60px;
+    padding-top: 5px;
 }
 
 /*
