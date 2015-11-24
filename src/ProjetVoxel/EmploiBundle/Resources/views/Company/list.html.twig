@@ -1,0 +1,34 @@
+{% extends "ProjetVoxelEmploiBundle::emploiLayout.html.twig" %}
+
+{% block title %}{{ parent() }} - liste des entreprises{% endblock %}
+{% block body %}
+    {% for company in companyList %}
+
+        <div class="col-md-12 uneCompany">
+            <div class="companyName col-md-12">
+                <h2>{{company.companyName}}</h2>
+            </div>
+            <div class="companyInfo col-md-12">
+
+                <p>{{ company.activity }}</p>
+
+                <h3>Crée par:<a href="LaRouteVersLeProfileDuType"> {{ company.creator.username }} </a></h3>
+
+            <h3>Possesseurs :</h3>
+            <ul>
+                {% for owner in company.owner %}
+                <li> <a href="LaRouteVersLeProfileDuType"> {{ owner.username }} </a>
+                    {% endfor %}
+            </ul>
+
+            <h3>Gérants:</h3>
+            <ul>
+                {% for manager in company.manager %}
+                <li> <a href="LaRouteVersLeProfileDuType"> {{ manager.username }} </a>
+                    {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+{% endfor %}
+    {% endblock %}
