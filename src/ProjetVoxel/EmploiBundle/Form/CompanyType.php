@@ -15,13 +15,21 @@ class CompanyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('companyName')
-            ->add('activity')
-            ->add('description')
-            ->add('save', 'submit')
+            ->add('companyName', 'text', array(
+                'label' => 'Nom de l\'entreprise:',
+                'attr' => array('class' =>'form-control')))
+            ->add('activity', 'text', array(
+                'label' => 'Activité de l\'entreprise:',
+                'attr' => array('class' =>'form-control')))
+            ->add('description', 'textarea', array(
+                'label' => 'Déscription de l\'entreprise:',
+                'attr' => array('class' =>'form-control TA100')))
+            ->add('save', 'submit', array(
+                'label' => 'Sauvegarder',
+                'attr' => array('class' =>'btn btn-default')))
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

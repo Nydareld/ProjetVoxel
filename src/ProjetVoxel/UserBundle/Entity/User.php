@@ -23,6 +23,15 @@ use Doctrine\ORM\Mapping as ORM;
      protected $id;
 
      /**
+      * @ORM\ManyToMany(targetEntity="ProjetVoxel\UserBundle\Entity\Group")
+      * @ORM\JoinTable(name="user_user_group",
+      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+      *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
+      * )
+      */
+     protected $groups;
+
+     /**
       * @ORM\OneToMany(targetEntity="ProjetVoxel\EmploiBundle\Entity\Company", mappedBy="creator")
       */
      private $CreatedCompany;

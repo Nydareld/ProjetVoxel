@@ -1,7 +1,18 @@
-{% extends "ProjetVoxelCoreBundle::Layout/HomeLayout.html.twig" %}
+{% extends "ProjetVoxelEmploiBundle::emploiLayout.html.twig" %}
 
 {% block title %}{{ parent() }} - créer entreprise{% endblock %}
 
 {% block body %}
-    {{form(form)}}
+
+<div class="row">
+    <div class="col-md-3">
+    </div>
+
+    <div class="col-md-6">
+        {{form(form)}}
+    </div>
+
+    <div class="col-md-3">
+    </div>
+</div>
 {% endblock %}
