@@ -299,6 +299,26 @@ div.file-input{
     color: #999;
 }
 
-/*
-Orange : ff712d
-Marron : 695d45*/
+/*****************
+    Affichage d'une entreprise dans la liste des entreprises
+*****************/
+
+.uneCompany{
+    width: 100%;
+    background-color: #BBB;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.uneCompany  > tbody > tr > td {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.companyName > td{
+    background-color: #333;
+    color:#BBB;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 4px #0066FF solid;
+}
+
+
+/****************/
