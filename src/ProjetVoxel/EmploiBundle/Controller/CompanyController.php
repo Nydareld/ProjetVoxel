@@ -39,4 +39,12 @@ class CompanyController extends Controller
             'form' => $form->createView(),
         ));
     }
+
+    public function listAction(){
+
+        $companyList = $this->getDoctrine()->getManager()->getRepository('ProjetVoxelEmploiBundle:Company')->findAll();
+
+        return $this->render('ProjetVoxelEmploiBundle:Company:list.html.twig', array('companyList' =>    $companyList));
+
+    }
 }
