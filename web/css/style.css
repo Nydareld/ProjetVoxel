@@ -290,6 +290,15 @@ div.file-input{
     min-height: 200px;
 }
 
+.pathUserProfile{
+    line-height: 22px;
+    position: absolute;
+    right: 17px;
+    text-align: right;
+    display: inline;
+    color: #999;
+}
+
 /*
 Orange : ff712d
 Marron : 695d45*/

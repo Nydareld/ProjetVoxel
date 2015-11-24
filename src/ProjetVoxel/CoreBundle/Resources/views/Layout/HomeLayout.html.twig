@@ -26,7 +26,7 @@
                 </a>
                 {% endif %}
             </div>
-            <p>{{ app.user.username }}</p>
+            <a href="{{ path('fos_user_profile_show')}}" class="pathUserProfile">{{ app.user.username }}</a>
             <div class="iconesUser">
                 <a href="{# Path Notif #}#">
                     <i id="social" class="fa fa-bell fa-lg"></i>
@@ -76,7 +76,7 @@
                 </a>
                 {% endif %}
             </div>
-            <p>{{ app.user.username }}</p>
+            <a href="{{ path('fos_user_profile_show')}}" class="pathUserProfile">{{ app.user.username }}</a>
             <div class="iconesUser">
                 <a href="{# Path Notif #}#">
                     <i id="social" class="fa fa-bell fa-lg"></i>
