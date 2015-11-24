@@ -1,0 +1,15 @@
+
+<div class="row">
+    <div class="col-md-4">
+    </div>
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'col-md-4 fos_user_registration_register'}}) }}
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'Envoyer' }}" class="btn btn-default" />
+    </div>
+{{ form_end(form) }}
+
+    <div class="col-md-4">
+    </div>
+</div>
