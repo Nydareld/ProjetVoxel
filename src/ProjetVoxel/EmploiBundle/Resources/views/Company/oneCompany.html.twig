@@ -1,12 +1,11 @@
 {% extends "ProjetVoxelEmploiBundle::emploiLayout.html.twig" %}
 
-{% block title %}{{ parent() }} - liste des entreprises{% endblock %}
+{% block title %}{{ parent() }} - Détails de l'entreprise {{ company.companyName }} {% endblock %}
 {% block body %}
-{% for company in companyList %}
 <table class="col-md-12 uneCompany">
     <tr class="companyName" >
         <td>
-            <h2><a href="{{ path('projet_voxel_emploi_uneCompany', {'id':company.id} ) }}">{{company.companyName}}</a></h2>
+            <h2>{{company.companyName}}</h2>
             <p>{{ company.activity }}</p>
         </td>
     </tr>
@@ -30,5 +29,4 @@
         </td>
     </tr>
 </table>
-{% endfor %}
 {% endblock %}

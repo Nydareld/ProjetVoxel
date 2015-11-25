@@ -320,5 +320,9 @@ div.file-input{
     border-bottom: 4px #0066FF solid;
 }
 
+.companyName a {
+    color: #BBB;
+}
+
 
 /****************/
