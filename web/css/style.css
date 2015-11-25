@@ -377,3 +377,11 @@ div.file-input{
     padding-left: 10px;
     padding-right: 10px;
 }
+/****************/
+.editIcone{
+    float: right;
+    margin-right: 15px;
+}
+.editIcone i{
+    color: #0066FF;
+}

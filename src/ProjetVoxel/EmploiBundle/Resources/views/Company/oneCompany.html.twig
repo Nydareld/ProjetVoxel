@@ -5,7 +5,14 @@
 <table class="col-md-12 uneCompany">
     <tr class="companyName" >
         <td>
-            <h2>{{company.companyName}}</h2>
+            <h2>
+                {{company.companyName}}
+                {% if manager %}
+                <a class="editIcone" href="{{ path('projet_voxel_emploi_editEntreprise',  {'id':company.id} ) }}">
+                    <i id="social" class="fa fa-cog fa-lg"></i>
+                </a>
+                {% endif %}
+            </h2>
             <p>{{ company.activity }}</p>
         </td>
     </tr>
