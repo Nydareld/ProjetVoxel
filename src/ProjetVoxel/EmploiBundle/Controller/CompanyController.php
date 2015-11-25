@@ -53,11 +53,18 @@ class CompanyController extends Controller
 
         $company = $this->getDoctrine()->getManager()->getRepository('ProjetVoxelEmploiBundle:Company')->findOneBy(array('id' => $id ));
 
-        return $this->render('ProjetVoxelEmploiBundle:Company:oneCompany.html.twig', array('company' =>    $company));
+        $manager = False;
+        if(in_array($this->get('security.context')->getToken()->getUser(), $company->getManager()->getValues())){
+            $manager = True;
+        }
+
+        return $this->render('ProjetVoxelEmploiBundle:Company:oneCompany.html.twig', array(
+            'company' => $company,
+            'manager' => $manager));
     }
 
     public function editAction($id){
-        
+
         $request = $this->get('request');
         $company = $this->getDoctrine()->getManager()->getRepository('ProjetVoxelEmploiBundle:Company')->findOneBy(array('id' => $id ));
 
