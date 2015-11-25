@@ -16,9 +16,9 @@
         <div id="bandeauCo">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <div class="imgProfilNav">
-                {% if false %} {# TODO Si a une image #}
+                {% if app.user.path is not null %}
                 <a>
-                    <img src="{# Path img profil#}" alt="..." class="avatar-layout img-circle">
+                    <img src="{{app.user.webPath}}" alt="..." class="avatar-layout img-circle">
                 </a>
                 {% else %}
                 <a>
@@ -53,9 +53,9 @@
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         <div id="bandeauCoReduit" class="hidden">
             <div class="imgProfilNav">
-                {% if false %}{# TODO Si a une image #}
+                {% if app.user.path is not null %}
                 <a>
-                    <img src="{# Path img profil#}" alt="..." class="avatar-layout img-circle">
+                    <img src="{{app.user.webPath}}" alt="..." class="avatar-layout img-circle">
                 </a>
                 {% else %}
                 <a>
@@ -66,9 +66,9 @@
         </div>
         <div id="bandeauCoBis" class="hidden">
             <div class="imgProfilNav">
-                {% if false %} {# TODO Si a une image #}
+                {% if app.user.path is not null %}
                 <a>
-                    <img src="{# Path img profil#}" alt="..." class="avatar-layout img-circle">
+                    <img src="{{app.user.webPath}}" alt="..." class="avatar-layout img-circle">
                 </a>
                 {% else %}
                 <a>

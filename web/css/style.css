@@ -243,6 +243,11 @@ div.file-input{
     border-radius: 22px;
     border: 4px #0066FF solid;
 }
+.avatar-layout{
+    width: 45px;
+    height: 45px;
+    border: 4px #0066FF solid;
+}
 .iconesUser{
     position: relative;
     right: -10px;
@@ -324,5 +329,51 @@ div.file-input{
     color: #BBB;
 }
 
-
 /****************/
+
+
+/*****************
+    Style page d'un utilisateur
+*****************/
+.fos_user_user_show{
+    width: 100%;
+    background-color: #BBB;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.fos_user_user_show h2{
+    color: #BBB;
+    background-color: #333;
+    padding: 15px;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 4px #0066FF solid;
+    margin-top: 0px;
+}
+.fos_user_user_show .userCard.img h2{
+    border-radius: 0px 5px 0 0;
+}
+
+.avatar-profile{
+    border-bottom: 4px #0066FF solid;
+    border-right: 4px #0066FF solid;
+    background-color: #333;
+    margin-left: 0px;
+}
+.avatar-profile img{
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: auto;
+}
+.avatar-profile{
+    border-radius: 5px 0 5px 0;
+}
+.userCard{
+    margin-left: 0px;
+    padding: 0px;
+}
+.userCardContent{
+    padding-left: 10px;
+    padding-right: 10px;
+}
