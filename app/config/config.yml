@@ -87,3 +87,6 @@ fos_user:
     user_class: ProjetVoxel\UserBundle\Entity\User
     group:
         group_class: ProjetVoxel\UserBundle\Entity\Group
+    profile:
+        form:
+            type: projetvoxel_user_user_profile
