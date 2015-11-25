@@ -32,6 +32,11 @@ use Doctrine\ORM\Mapping as ORM;
      protected $groups;
 
      /**
+      * @ORM\OneToOne(targetEntity="ProjetVoxel\EconomyBundle\Entity\bankId", mappedBy="user")
+      */
+     private $bankId;
+
+     /**
       * @ORM\OneToMany(targetEntity="ProjetVoxel\EmploiBundle\Entity\Company", mappedBy="creator")
       */
      private $CreatedCompany;
@@ -78,5 +83,13 @@ use Doctrine\ORM\Mapping as ORM;
 
      public function setOwnedCompany($ownedCompany){
          $this->ownedCompany = $ownedCompany;
+     }
+
+     public function getBankId(){
+         return $this->bankId;
+     }
+
+     public function setBankId($bankId){
+         $this->bankId = $bankId;
      }
  }

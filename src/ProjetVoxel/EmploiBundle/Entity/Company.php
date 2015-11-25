@@ -65,7 +65,12 @@ class Company
      * @ORM\Column(name="CreationDate", type="date")
      */
     private $creationDate;
-    
+
+    /**
+     * @ORM\OneToOne(targetEntity="ProjetVoxel\EconomyBundle\Entity\bankId", mappedBy="company")
+     */
+    private $bankId;
+
     /**
      * Get id
      *
@@ -194,6 +199,14 @@ class Company
 
     public function setOwner($owner){
         $this->owner = $owner;
+    }
+
+    public function getBankId(){
+        return $this->bankId;
+    }
+
+    public function setBankId($bankId){
+        $this->bankId = $bankId;
     }
 }
 
