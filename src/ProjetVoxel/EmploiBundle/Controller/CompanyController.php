@@ -25,6 +25,7 @@ class CompanyController extends Controller
         $form = $this->get('form.factory')->create(new CompanyType(), $company);
 
         if ($form->handleRequest($request)->isValid()) {
+            $company->upload();
             $user->setManagedCompany($company);
             $user->setOwnedCompany($company);
             $em = $this->getDoctrine()->getManager();
@@ -83,6 +84,7 @@ class CompanyController extends Controller
         $form = $this->get('form.factory')->create(new CompanyType(), $company);
 
         if ($form->handleRequest($request)->isValid()) {
+            $company->upload();
             $em = $this->getDoctrine()->getManager();
             $em->persist($company);
             $em->flush();
