@@ -336,7 +336,6 @@ div.file-input{
     Style page d'un utilisateur
 *****************/
 .fos_user_user_show{
-    width: 100%;
     background-color: #BBB;
     border-radius: 5px;
     margin-bottom: 20px;
