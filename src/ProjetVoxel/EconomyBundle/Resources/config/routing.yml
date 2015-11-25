@@ -1,0 +1,3 @@
+projet_voxel_economy_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ProjetVoxelEconomyBundle:Default:index }
