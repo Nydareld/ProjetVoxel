@@ -47,4 +47,11 @@ class CompanyController extends Controller
         return $this->render('ProjetVoxelEmploiBundle:Company:list.html.twig', array('companyList' =>    $companyList));
 
     }
+
+    public function displayOneAction($id){
+
+        $company = $this->getDoctrine()->getManager()->getRepository('ProjetVoxelEmploiBundle:Company')->findOneBy(array('id' => $id ));
+
+        return $this->render('ProjetVoxelEmploiBundle:Company:oneCompany.html.twig', array('company' =>    $company));
+    }
 }

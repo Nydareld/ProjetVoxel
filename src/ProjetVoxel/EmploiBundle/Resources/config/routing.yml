@@ -7,3 +7,6 @@ projet_voxel_emploi_createEntreprise:
 projet_voxel_emploi_listCompany:
     path: /company/list
     defaults: {_controller: ProjetVoxelEmploiBundle:Company:list}
+projet_voxel_emploi_uneCompany:
+    path: /company/{id}
+    defaults: {_controller: ProjetVoxelEmploiBundle:Company:displayOne}
