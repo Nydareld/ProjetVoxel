@@ -3,6 +3,8 @@
 namespace ProjetVoxel\EmploiBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Company
@@ -70,6 +72,17 @@ class Company
      * @ORM\OneToOne(targetEntity="ProjetVoxel\EconomyBundle\Entity\bankId", mappedBy="company")
      */
     private $bankId;
+
+     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+   protected $path;
+
+   /**
+    * @Assert\File(maxSize="1000000")
+    */
+   private $file;
+
 
     /**
      * Get id
@@ -201,6 +214,7 @@ class Company
         $this->owner = $owner;
     }
 
+
     public function getBankId(){
         return $this->bankId;
     }
@@ -208,5 +222,88 @@ class Company
     public function setBankId($bankId){
         $this->bankId = $bankId;
     }
-}
 
+
+    public function getPath(){
+        return $this->path;
+    }
+
+    public function setPath($path){
+        $this->path = $path;
+    }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->path
+            ? null
+            : $this->getUploadRootDir().'/'.$this->path;
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->path
+            ? null
+            : '/'.$this->getUploadDir().'/'.$this->path;
+    }
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return 'uploads/entreprises';
+    }
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    public function upload()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getFile()) {
+            return;
+        }
+
+        // use the original file name here but you should
+        // sanitize it at least to avoid any security issues
+
+        // move takes the target directory and then the
+        // target filename to move to
+
+        $extension = $this->file->guessExtension();
+        $fileName = $this->companyName.'.'.$extension;
+
+        $this->getFile()->move(
+            $this->getUploadRootDir(),
+            $fileName
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->path = $fileName;
+
+        // clean up the file property as you won't need it anymore
+        $this->file = null;
+    }
+}

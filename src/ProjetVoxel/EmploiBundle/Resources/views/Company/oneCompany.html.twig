@@ -2,15 +2,24 @@
 
 {% block title %}{{ parent() }} - Détails de l'entreprise {{ company.companyName }} {% endblock %}
 {% block body %}
-<table class="col-md-12 uneCompany">
-    <tr class="companyName" >
-        <td>
-            <h2>{{company.companyName}}</h2>
-            <p>{{ company.activity }}</p>
-        </td>
-    </tr>
-    <tr class="companyInfo" >
-        <td>
+<div class="fos_user_user_show row ">
+    {% if company.path is not null %}
+    <div class="col-md-3 avatar-profile">
+        <img src="{{company.webPath}}" alt="..." class="">
+    </div>
+    <div class="col-md-9 userCard img">
+    {% else %}
+    <div class="col-md-12 userCard">
+    {% endif %}
+        <h2>
+            {{company.companyName}}
+            {% if manager %}
+            <a class="editIcone" href="{{ path('projet_voxel_emploi_editEntreprise',  {'id':company.id} ) }}">
+                <i id="social" class="fa fa-cog fa-lg"></i>
+            </a>
+            {% endif %}
+        </h2>
+        <div class="userCardContent">
             <h3>Déscription de l'entreprises :</h3>
             {{ company.description }}
             <h3>Crée par:<a href="LaRouteVersLeProfileDuType"> {{ company.creator.username }} </a></h3>
@@ -26,7 +35,7 @@
                 <li> <a href="LaRouteVersLeProfileDuType"> {{ manager.username }} </a></li>
                 {% endfor %}
             </ul>
-        </td>
-    </tr>
-</table>
+        </div>
+    </div>
+</div>
 {% endblock %}

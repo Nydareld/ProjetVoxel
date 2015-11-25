@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use ProjetVoxel\EmploiBundle\Entity\Company;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class CompanyController extends Controller
 {
@@ -24,6 +25,7 @@ class CompanyController extends Controller
         $form = $this->get('form.factory')->create(new CompanyType(), $company);
 
         if ($form->handleRequest($request)->isValid()) {
+            $company->upload();
             $user->setManagedCompany($company);
             $user->setOwnedCompany($company);
             $em = $this->getDoctrine()->getManager();
@@ -52,6 +54,47 @@ class CompanyController extends Controller
 
         $company = $this->getDoctrine()->getManager()->getRepository('ProjetVoxelEmploiBundle:Company')->findOneBy(array('id' => $id ));
 
-        return $this->render('ProjetVoxelEmploiBundle:Company:oneCompany.html.twig', array('company' =>    $company));
+        $manager = False;
+        if(in_array($this->get('security.context')->getToken()->getUser(), $company->getManager()->getValues())){
+            $manager = True;
+        }
+
+        return $this->render('ProjetVoxelEmploiBundle:Company:oneCompany.html.twig', array(
+            'company' => $company,
+            'manager' => $manager));
+    }
+
+    public function editAction($id){
+
+        $request = $this->get('request');
+        $company = $this->getDoctrine()->getManager()->getRepository('ProjetVoxelEmploiBundle:Company')->findOneBy(array('id' => $id ));
+
+        // Doit etre une USER sinon ca va bugger quand on va le chercher
+        if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            throw new AccessDeniedException('Accès limité aux utilisateurs');
+        }
+
+        $user = $this->get('security.context')->getToken()->getUser();
+
+        // on verifie qu'il est gérant
+        if(!in_array($user, $company->getManager()->getValues())){
+            throw new AccessDeniedException("Acces limité aux gérants de l'entreprise");
+        }
+
+        $form = $this->get('form.factory')->create(new CompanyType(), $company);
+
+        if ($form->handleRequest($request)->isValid()) {
+            $company->upload();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($company);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Compagnie bien enregistrée.');
+
+            return $this->redirect($this->generateUrl('projet_voxel_emploi_uneCompany', array('id' => $company->getId())));
+        }
+        return $this->render('ProjetVoxelEmploiBundle:Company:create.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 }

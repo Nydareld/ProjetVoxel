@@ -98,6 +98,14 @@ use Doctrine\ORM\Mapping as ORM;
         $this->ownedCompany = $ownedCompany;
     }
 
+     public function getBankId(){
+         return $this->bankId;
+     }
+
+     public function setBankId($bankId){
+         $this->bankId = $bankId;
+     }
+
     public function getPath(){
         return $this->path;
     }
@@ -181,16 +189,5 @@ use Doctrine\ORM\Mapping as ORM;
         $this->file = null;
     }
 
-}
-
-
-
-     public function getBankId(){
-         return $this->bankId;
-     }
-
-     public function setBankId($bankId){
-         $this->bankId = $bankId;
-     }
  }
 

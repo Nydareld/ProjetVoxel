@@ -24,6 +24,7 @@ class CompanyType extends AbstractType
             ->add('description', 'textarea', array(
                 'label' => 'Déscription de l\'entreprise:',
                 'attr' => array('class' =>'form-control TA100')))
+            ->add('file')
             ->add('save', 'submit', array(
                 'label' => 'Sauvegarder',
                 'attr' => array('class' =>'btn btn-default')))
