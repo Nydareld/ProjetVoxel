@@ -34,6 +34,11 @@ use Doctrine\ORM\Mapping as ORM;
      protected $groups;
 
      /**
+      * @ORM\OneToOne(targetEntity="ProjetVoxel\EconomyBundle\Entity\bankId", mappedBy="user")
+      */
+     private $bankId;
+
+     /**
       * @ORM\OneToMany(targetEntity="ProjetVoxel\EmploiBundle\Entity\Company", mappedBy="creator")
       */
      private $CreatedCompany;
@@ -51,6 +56,7 @@ use Doctrine\ORM\Mapping as ORM;
      /**
       * @ORM\Column(type="string", length=255, nullable=true)
       */
+
     protected $path;
 
     /**
@@ -176,3 +182,15 @@ use Doctrine\ORM\Mapping as ORM;
     }
 
 }
+
+
+
+     public function getBankId(){
+         return $this->bankId;
+     }
+
+     public function setBankId($bankId){
+         $this->bankId = $bankId;
+     }
+ }
+
