@@ -10,6 +10,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use ProjetVoxel\EconomyBundle\Entity\BankId;
+use ProjetVoxel\EconomyBundle\Entity\BankAccount;
 
 /**
  * Listener responsible to change the redirection at the end of the password resetting
@@ -39,7 +40,15 @@ class RegistrationCompletedListener implements EventSubscriberInterface
 
         $bankId = new BankId();
         $bankId->setUser($user);
+
+        $account = new BankAccount();
+        $account->setName("Compte courant");
+        $account->setOwner($bankId);
+        $account->setMain(true);
+        $account->setAmount(0);
+
         $this->em->persist($bankId);
+        $this->em->persist($account);
         $this->em->flush();
         //$event->setResponse(new RedirectResponse($url));
     }

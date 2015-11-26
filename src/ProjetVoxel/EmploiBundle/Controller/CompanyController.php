@@ -9,6 +9,7 @@ use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use ProjetVoxel\EconomyBundle\Entity\BankId;
+use ProjetVoxel\EconomyBundle\Entity\BankAccount;
 
 class CompanyController extends Controller
 {
@@ -30,11 +31,18 @@ class CompanyController extends Controller
             $bankId = new BankId();
             $bankId->setCompany($company);
 
+            $account = new BankAccount();
+            $account->setName("Compte courant");
+            $account->setOwner($bankId);
+            $account->setMain(true);
+            $account->setAmount(0);
+
             $company->upload();
             $user->setManagedCompany($company);
             $user->setOwnedCompany($company);
             $em = $this->getDoctrine()->getManager();
             $em->persist($bankId);
+            $em->persist($account);
             $em->persist($company);
             $em->persist($user);
             $em->flush();
