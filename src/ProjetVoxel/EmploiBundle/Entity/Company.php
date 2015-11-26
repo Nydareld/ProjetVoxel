@@ -75,14 +75,28 @@ class Company
 
      /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     */
-   protected $path;
+      */
+    protected $path;
 
-   /**
+    /**
     * @Assert\File(maxSize="1000000")
     */
-   private $file;
+    private $file;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Job", mappedBy="Company")
+     */
+
+    private $listOfJob;
+
+
+    public function getListOfJob(){
+        return $this->listOfJob;
+    }
+
+    public function setListOfJob($listOfJob){
+        $this->listOfJob = $listOfJob;
+    }
 
     /**
      * Get id
