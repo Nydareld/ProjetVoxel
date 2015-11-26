@@ -8,6 +8,7 @@ use ProjetVoxel\EmploiBundle\Entity\Company;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use ProjetVoxel\EconomyBundle\Entity\BankId;
 
 class CompanyController extends Controller
 {
@@ -25,17 +26,22 @@ class CompanyController extends Controller
         $form = $this->get('form.factory')->create(new CompanyType(), $company);
 
         if ($form->handleRequest($request)->isValid()) {
+
+            $bankId = new BankId();
+            $bankId->setCompany($company);
+
             $company->upload();
             $user->setManagedCompany($company);
             $user->setOwnedCompany($company);
             $em = $this->getDoctrine()->getManager();
+            $em->persist($bankId);
             $em->persist($company);
             $em->persist($user);
             $em->flush();
 
             $request->getSession()->getFlashBag()->add('notice', 'Compagnie bien enregistrée.');
 
-            return $this->redirect($this->generateUrl('projet_voxel_core_homepage', array('id' => $company->getId())));
+            return $this->redirect($this->generateUrl('projet_voxel_emploi_uneCompany', array('id' => $company->getId())));
         }
         return $this->render('ProjetVoxelEmploiBundle:Company:create.html.twig', array(
             'form' => $form->createView(),
