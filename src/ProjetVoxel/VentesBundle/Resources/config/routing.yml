@@ -1,0 +1,3 @@
+projet_voxel_ventes_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ProjetVoxelVentesBundle:Default:index }

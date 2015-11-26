@@ -1,3 +1,7 @@
+projet_voxel_ventes:
+    resource: "@ProjetVoxelVentesBundle/Resources/config/routing.yml"
+    prefix:   /
+
 projet_voxel_economy:
     resource: "@ProjetVoxelEconomyBundle/Resources/config/routing.yml"
     prefix:   /economy/
