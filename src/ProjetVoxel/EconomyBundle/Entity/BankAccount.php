@@ -22,6 +22,20 @@ class BankAccount
     private $id;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="main", type="boolean")
+     */
+    private $main = false;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="amount", type="integer")
@@ -75,4 +89,20 @@ class BankAccount
     public function setOwner($owner){
         $this->owner = $owner;
     }
+
+    public function getName(){
+		return $this->name;
+	}
+
+	public function setName($name){
+		$this->name = $name;
+	}
+
+    public function isMain(){
+		return $this->main;
+	}
+
+	public function setMain($main){
+		$this->main = $main;
+	}
 }
