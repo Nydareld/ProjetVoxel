@@ -28,4 +28,12 @@ class Package extends OpperationObject
 	public function setContent($content){
 		$this->content = $content;
 	}
+
+    public function getTotalPrice(){
+        $sum = 0;
+        foreach ($this->content as $object){
+            $sum += $object->getTotalPrice();
+        }
+        return $sum;
+    }
 }
