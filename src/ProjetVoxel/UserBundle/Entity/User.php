@@ -34,7 +34,7 @@ use Doctrine\ORM\Mapping as ORM;
      protected $groups;
 
      /**
-      * @ORM\OneToOne(targetEntity="ProjetVoxel\EconomyBundle\Entity\bankId", mappedBy="user")
+      * @ORM\OneToOne(targetEntity="ProjetVoxel\EconomyBundle\Entity\BankId", mappedBy="user")
       */
      private $bankId;
 
@@ -190,4 +190,3 @@ use Doctrine\ORM\Mapping as ORM;
     }
 
  }
-

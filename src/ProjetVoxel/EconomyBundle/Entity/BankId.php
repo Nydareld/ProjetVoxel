@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class bankId
+class BankId
 {
     /**
      * @var integer
@@ -33,7 +33,7 @@ class bankId
 
 
     /**
-     * @ORM\OneToMany(targetEntity="ProjetVoxel\EconomyBundle\Entity\bankAccount", mappedBy="owner")
+     * @ORM\OneToMany(targetEntity="ProjetVoxel\EconomyBundle\Entity\BankAccount", mappedBy="owner")
      */
     private $bankAccount;
 
@@ -71,4 +71,3 @@ class bankId
         $this->bankAccount = $bankAccount;
     }
 }
-

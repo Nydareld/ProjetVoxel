@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class bankAccount
+class BankAccount
 {
     /**
      * @var integer
@@ -29,7 +29,7 @@ class bankAccount
     private $amount;
 
     /**
-     * @ORM\ManyToOne(targetEntity="bankId", inversedBy="bankAccount")
+     * @ORM\ManyToOne(targetEntity="BankId", inversedBy="bankAccount")
      */
 
     private $owner;
@@ -76,4 +76,3 @@ class bankAccount
         $this->owner = $owner;
     }
 }
-

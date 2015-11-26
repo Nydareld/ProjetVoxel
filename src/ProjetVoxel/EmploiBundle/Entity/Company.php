@@ -69,7 +69,7 @@ class Company
     private $creationDate;
 
     /**
-     * @ORM\OneToOne(targetEntity="ProjetVoxel\EconomyBundle\Entity\bankId", mappedBy="company")
+     * @ORM\OneToOne(targetEntity="ProjetVoxel\EconomyBundle\Entity\BankId", mappedBy="company")
      */
     private $bankId;
 
