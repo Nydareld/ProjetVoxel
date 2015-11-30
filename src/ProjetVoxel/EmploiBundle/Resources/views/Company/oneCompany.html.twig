@@ -19,22 +19,29 @@
             </a>
             {% endif %}
         </h2>
-        <div class="userCardContent">
-            <h3>Déscription de l'entreprises :</h3>
-            {{ company.description }}
-            <h3>Crée par:<a href="LaRouteVersLeProfileDuType"> {{ company.creator.username }} </a></h3>
-            <h3>Possesseurs :</h3>
-            <ul>
-                {% for owner in company.owner %}
-                <li> <a href="LaRouteVersLeProfileDuType"> {{ owner.username }} </a></li>
-                {% endfor %}
-            </ul>
-            <h3>Gérants:</h3>
-            <ul>
-                {% for manager in company.manager %}
-                <li> <a href="LaRouteVersLeProfileDuType"> {{ manager.username }} </a></li>
-                {% endfor %}
-            </ul>
+            <div class="userCardContent">
+                <h3>Déscription de l'entreprises :</h3>
+                {{ company.description }}
+                <h3>Crée par:<a href="LaRouteVersLeProfileDuType"> {{ company.creator.username }} </a></h3>
+                <h3>Possesseurs :</h3>
+                <ul>
+                    {% for owner in company.owner %}
+                    <li> <a href="LaRouteVersLeProfileDuType"> {{ owner.username }} </a></li>
+                    {% endfor %}
+                </ul>
+                <h3>Gérants:</h3>
+                <ul>
+                    {% for manager in company.manager %}
+                    <li> <a href="LaRouteVersLeProfileDuType"> {{ manager.username }} </a></li>
+                    {% endfor %}
+                </ul>
+                <h3>Liste des postes proposés :</h3>
+                <ul>
+                    {% for job in company.ListOfJob %}
+                    <li><a href="{{ path('projet_voxel_emploi_jobDetails', {'id':job.id}) }}">{{ job.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 </div>

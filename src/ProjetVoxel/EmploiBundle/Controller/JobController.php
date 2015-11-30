@@ -38,4 +38,15 @@ class JobController extends Controller
             'form' => $form->createView(),
         ));
     }
+
+    public function jobDetailsAction($id){
+
+        $job = $this->getDoctrine()->getManager()->getRepository('ProjetVoxelEmploiBundle:Job')->findOneBy(array('id' => $id));
+        $employee = false;
+        if(in_array($this->get('security.context')->getToken()->getUser(), $job->getEmployee()->getValues())){
+            $employee = True;
+        }
+
+        return $this->render('ProjetVoxelEmploiBundle:Job:JobDetails.html.twig', array('job' => $job, 'employee' => $employee));
+    }
 }
