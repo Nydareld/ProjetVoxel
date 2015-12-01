@@ -30,6 +30,13 @@ abstract class OpperationObject
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    public static $type;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="total_price", type="integer")
@@ -44,6 +51,10 @@ abstract class OpperationObject
     public function getName(){
 		return $this->name;
 	}
+
+    public function getType(){
+        return "Opperation";
+    }
 
 	public function setName($name){
 		$this->name = $name;

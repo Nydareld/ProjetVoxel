@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-class Saleable extends OpperationObject
+abstract class Saleable extends OpperationObject
 {
     /**
      * @var integer
@@ -22,6 +22,11 @@ class Saleable extends OpperationObject
      * @ORM\Column(name="quantity", type="integer")
      */
     protected $quantity = 1;
+
+
+    public function getType(){
+        return "Saleable";
+    }
 
     public function getUnitPrice(){
 		return $this->unitPrice;

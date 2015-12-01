@@ -24,6 +24,10 @@ class Package extends OpperationObject
 		$this->content = $content;
 	}
 
+    public function getType(){
+        return "Package";
+    }
+
     public function getTotalPrice(){
         $sum = 0;
         foreach ($this->content as $object){
