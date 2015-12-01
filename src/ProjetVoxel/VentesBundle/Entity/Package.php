@@ -5,12 +5,7 @@ namespace ProjetVoxel\VentesBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Company
- *
- * @ORM\Table()
  * @ORM\Entity
- * @ORM\AssociationOverrides({
- *      @ORM\AssociationOverride(name="parent")})
  */
 
 class Package extends OpperationObject
