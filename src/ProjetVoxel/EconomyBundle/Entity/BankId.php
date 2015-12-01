@@ -38,6 +38,11 @@ class BankId
     private $bankAccount;
 
     /**
+     * @ORM\OneToMany(targetEntity="ProjetVoxel\VentesBundle\Entity\CatalogueItem", mappedBy="bankId")
+     */
+    private $catalogue;
+
+    /**
      * Get id
      *
      * @return integer
