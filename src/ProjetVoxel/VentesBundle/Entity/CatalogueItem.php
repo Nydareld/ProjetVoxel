@@ -51,4 +51,19 @@ class CatalogueItem {
      */
     protected $enable = true;
 
+    /**
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    protected $type; // Peut etre un objet ou un service (Objet peut etre un ojet de SE ou un CustomObject comme un vaisseau complet )
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ItemModel", inversedBy="soldBy")
+     */
+    protected $item;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ServiceModel", inversedBy="soldBy")
+     */
+    protected $service;
+
 }
