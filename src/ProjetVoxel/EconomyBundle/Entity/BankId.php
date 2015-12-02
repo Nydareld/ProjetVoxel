@@ -75,4 +75,12 @@ class BankId
     public function setBankAccount($bankAccount){
         $this->bankAccount = $bankAccount;
     }
+
+    public function getCatalogue(){
+        return $this->catalogue;
+    }
+
+    public function setCatalogue($catalogue){
+        $this->catalogue = $catalogue;
+    }
 }
