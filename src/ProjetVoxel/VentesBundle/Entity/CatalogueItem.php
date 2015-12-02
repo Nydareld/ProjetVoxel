@@ -66,4 +66,76 @@ class CatalogueItem {
      */
     protected $service;
 
+    public function getId(){
+        return $this->id;
+    }
+
+    public function setId($id){
+        $this->id = $id;
+    }
+
+    public function getName(){
+        return $this->name;
+    }
+
+    public function setName($name){
+        $this->name = $name;
+    }
+
+    public function getUnitPrice(){
+        return $this->unitPrice;
+    }
+
+    public function setUnitPrice($unitPrice){
+        $this->unitPrice = $unitPrice;
+    }
+
+    public function getQuantity(){
+        return $this->quantity;
+    }
+
+    public function setQuantity($quantity){
+        $this->quantity = $quantity;
+    }
+
+    public function getBankId(){
+        return $this->bankId;
+    }
+
+    public function setBankId($bankId){
+        $this->bankId = $bankId;
+    }
+
+    public function getEnable(){
+        return $this->enable;
+    }
+
+    public function setEnable($enable){
+        $this->enable = $enable;
+    }
+
+    public function getType(){
+        return $this->type;
+    }
+
+    public function setType($type){
+        $this->type = $type;
+    }
+
+    public function getItem(){
+        return $this->item;
+    }
+
+    public function setItem($item){
+        $this->item = $item;
+    }
+
+    public function getService(){
+        return $this->service;
+    }
+
+    public function setService($service){
+        $this->service = $service;
+    }
+
 }
