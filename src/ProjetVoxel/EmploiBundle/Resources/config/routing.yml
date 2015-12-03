@@ -17,3 +17,11 @@ projet_voxel_emploi_uneCompany:
 projet_voxel_emploi_editEntreprise:
     path: /company/{id}/edit
     defaults: {_controller: ProjetVoxelEmploiBundle:Company:edit}
+
+projet_voxel_emploi_createJob:
+    path: /company/{id}/edit/createJob
+    defaults: {_controller: ProjetVoxelEmploiBundle:Job:create}
+
+projet_voxel_emploi_jobDetails:
+    path: /job/{id}
+    defaults: {_controller: ProjetVoxelEmploiBundle:Job:jobDetails}

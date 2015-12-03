@@ -57,18 +57,45 @@ use Doctrine\ORM\Mapping as ORM;
       * @ORM\Column(type="string", length=255, nullable=true)
       */
 
-    protected $path;
+     protected $path;
 
     /**
      * @Assert\File(maxSize="1000000")
      */
-    private $file;
+     private $file;
+
+     /**
+      * @ORM\ManyToOne(targetEntity="ProjetVoxel\EmploiBundle\Entity\Job", inversedBy="employee")
+      */
+     private $job;
+
+     /**
+      * @ORM\ManyToOne(targetEntity="ProjetVoxel\EmploiBundle\Entity\Job", inversedBy="appliant")
+      */
+     private $jobApply;
 
     /**
      * Get id
      *
      * @return integer
      */
+
+     public function getJob(){
+         return $this->job;
+     }
+
+     public function setJob($job){
+         $this->job = $job;
+     }
+
+     public function getJobApply(){
+         return $this->jobApply;
+     }
+
+     public function setJobApply($jobApply){
+         $this->jobApply = $jobApply;
+     }
+
     public function getId()
     {
         return $this->id;
@@ -188,5 +215,7 @@ use Doctrine\ORM\Mapping as ORM;
         // clean up the file property as you won't need it anymore
         $this->file = null;
     }
+
+
 
  }
