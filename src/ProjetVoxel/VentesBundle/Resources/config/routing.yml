@@ -1,3 +1,7 @@
 projet_voxel_ventes_homepage:
     path:     /hello/{name}
     defaults: { _controller: ProjetVoxelVentesBundle:Default:index }
+
+projet_voxel_ventes_add_catalogue_item:
+    path: /{accountId}/catalogue/additem
+    defaults: { _controller: ProjetVoxelVentesBundle:Catalogue:addItem }
