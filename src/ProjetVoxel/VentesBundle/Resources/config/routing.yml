@@ -3,5 +3,5 @@ projet_voxel_ventes_homepage:
     defaults: { _controller: ProjetVoxelVentesBundle:Default:index }
 
 projet_voxel_ventes_add_catalogue_item:
-    path: /{accountId}/catalogue/additem
+    path: /{bankId}/catalogue/additem
     defaults: { _controller: ProjetVoxelVentesBundle:Catalogue:addItem }
