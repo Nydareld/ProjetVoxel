@@ -1,6 +1,6 @@
 projet_voxel_ventes:
     resource: "@ProjetVoxelVentesBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /ventes/
 
 projet_voxel_economy:
     resource: "@ProjetVoxelEconomyBundle/Resources/config/routing.yml"
