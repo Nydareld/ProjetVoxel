@@ -3,6 +3,7 @@
 namespace ProjetVoxel\EconomyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ProjetVoxel\UserBundle\Entity\User;
 
 /**
  * bankId
@@ -83,4 +84,17 @@ class BankId
     public function setCatalogue($catalogue){
         $this->catalogue = $catalogue;
     }
+
+    public function userHasWright(User $theUser){
+        if($theUser == $this->getUser()){
+            return true;
+        }elseif(null !== $this->getCompany()){
+            if( in_array($theUser, $this->getCompany()->getManager()->getValues()) ){
+                return true;
+            }
+        }else{
+            return false;
+        }
+    }
+
 }
