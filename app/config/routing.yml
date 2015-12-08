@@ -1,3 +1,7 @@
+projet_voxel_administrative:
+    resource: "@ProjetVoxelAdministrativeBundle/Resources/config/routing.yml"
+    prefix:   /administration
+
 projet_voxel_ventes:
     resource: "@ProjetVoxelVentesBundle/Resources/config/routing.yml"
     prefix:   /

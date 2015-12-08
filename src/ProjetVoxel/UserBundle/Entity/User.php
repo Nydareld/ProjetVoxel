@@ -74,11 +74,32 @@ use Doctrine\ORM\Mapping as ORM;
       */
      private $jobApply;
 
+     /**
+      * @ORM\OneToMany(targetEntity="ProjetVoxel\AdministrativeBundle\Entity\Ship", mappedBy="owner")
+      */
+     private $ownedShip;
+
+     /**
+      * @ORM\OneToMany(targetEntity="Notif",mappedBy="user")
+      */
+
+     private $notif;
+
     /**
      * Get id
      *
      * @return integer
      */
+
+
+
+     public function getOwnedShip(){
+         return $this->ownedShip;
+     }
+
+     public function setOwnedShip($ownedShip){
+         $this->ownedShip = $ownedShip;
+     }
 
      public function getJob(){
          return $this->job;

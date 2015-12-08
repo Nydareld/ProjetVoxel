@@ -43,10 +43,33 @@ class JobController extends Controller
 
         $job = $this->getDoctrine()->getManager()->getRepository('ProjetVoxelEmploiBundle:Job')->findOneBy(array('id' => $id));
         $employee = false;
+        $appliant = false;
         if(in_array($this->get('security.context')->getToken()->getUser(), $job->getEmployee()->getValues())){
             $employee = True;
         }
+        if(in_array($this->get('security.context')->getToken()->getUser(), $job->getAppliant()->getValues())){
+            $appliant = True;
+        }
 
-        return $this->render('ProjetVoxelEmploiBundle:Job:JobDetails.html.twig', array('job' => $job, 'employee' => $employee));
+        return $this->render('ProjetVoxelEmploiBundle:Job:JobDetails.html.twig', array('job' => $job, 'appliant' => $appliant, 'employee' => $employee));
+    }
+
+    public function applyJobAction($id){
+
+        $job = $this->getDoctrine()->getManager()->getRepository('ProjetVoxelEmploiBundle:Job')->findOneBy(array('id' => $id));
+        $user = $this->get('security.context')->getToken()->getUser();
+        $appliant = true;
+        $employee = false;
+        /*
+            TO-DO : Add Notif
+         */
+
+        $user->setJobApply($job);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+        return $this->render('ProjetVoxelEmploiBundle:Job:JobDetails.html.twig', array('job' => $job,  'employee' => $employee, 'appliant' => $appliant));
     }
 }
