@@ -3,34 +3,41 @@
 {% block title %}{{ parent() }} - Détails du poste de {{ job.name }} pour la compagnie {{ job.company.companyName }} {% endblock %}
 
 {% block body %}
-   <div class="col-md-6-center">
-   <div class="fos_user_user_show row ">
-      <h2>{{ job.name }} pour la compagnie {{ job.company.companyName }}</h2>
-      <div class="userCardContent">
-         </br>
-         <h3><u>Description du poste :</u> </h3>
-         <h4>{{ job.description }}</h4>
-         </br>
-         <h3><u>Salaire :</u></h3>
-         <h4>{{ job.wages }}</h4>
-         </br>
-         <h3><u>Place(s) restante(s) :</u></h3>
-         <h4>{{ job.jobLeft }}</h4>
-         </br>
-         <h3><u>Nombre de jours de congé :</u></h3>
-         <h4>{{ job.dayOff }}</h4>
-         </br>
-         <h3><u>Nombre de collaborateur :</u></h3>
-         <ul>
-            {% for employee in job.employee %}
-               <li><h4><a href="RouteVersLeType">{{ employee.username }}</a></h4></li>
-               {% endfor %}
+
+   <div class="col-md-3">
+
+   </div>
+   <div class="col-md-6">
+      <div class="fos_user_user_show row ">
+         <h2>{{ job.name }} pour la compagnie {{ job.company.companyName }}</h2>
+         <div class="userCardContent">
             </br>
-         </ul>
-         {% if employee == false %}
-            <button>Envoyer son CV</button>
-         {% endif %}
+            <h3><u>Description du poste :</u> </h3>
+            <h4>{{ job.description }}</h4>
+            </br>
+            <h3><u>Salaire :</u></h3>
+            <h4>{{ job.wages }}</h4>
+            </br>
+            <h3><u>Place(s) restante(s) :</u></h3>
+            <h4>{{ job.jobLeft }}</h4>
+            </br>
+            <h3><u>Nombre de jours de congé :</u></h3>
+            <h4>{{ job.dayOff }}</h4>
+            </br>
+            <h3><u>Nombre de collaborateur :</u></h3>
+            <ul>
+               {% for employee in job.employee %}
+                  <li><h4><a href="RouteVersLeType">{{ employee.username }}</a></h4></li>
+               {% endfor %}
+               </br>
+            </ul>
+            {% if employee == false and appliant == false %}
+               <a href="{{ path('projet_voxel_emploi_apply', {'id':job.id} ) }}">Envoyer son CV</a>
+            {% endif %}
+         </div>
       </div>
    </div>
+   <div class="col-md-3">
+
    </div>
 {% endblock %}

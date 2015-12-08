@@ -107,8 +107,9 @@ class CompanyController extends Controller
 
             return $this->redirect($this->generateUrl('projet_voxel_emploi_uneCompany', array('id' => $company->getId())));
         }
-        return $this->render('ProjetVoxelEmploiBundle:Company:create.html.twig', array(
-            'form' => $form->createView(),
+
+        return $this->render('ProjetVoxelEmploiBundle:Company:editCompany.html.twig', array(
+            'form' => $form->createView(), 'company' => $company
         ));
     }
 }
