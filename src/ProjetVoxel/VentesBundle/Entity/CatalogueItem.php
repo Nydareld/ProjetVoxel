@@ -33,6 +33,13 @@ class CatalogueItem {
     protected $unitPrice;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="unit", type="string", length=255)
+     */
+    protected $unit;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="quantity", type="integer")
@@ -88,6 +95,14 @@ class CatalogueItem {
 
     public function setUnitPrice($unitPrice){
         $this->unitPrice = $unitPrice;
+    }
+
+    public function getUnit(){
+        return $this->unit;
+    }
+
+    public function setUnit($unit){
+        $this->unit = $unit;
     }
 
     public function getQuantity(){
