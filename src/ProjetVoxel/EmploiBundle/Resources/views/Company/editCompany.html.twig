@@ -16,7 +16,7 @@
         {% for job in company.ListOfJob %}
             {% for appliant in job.appliant %}
                 <h4>{{ appliant.username }} a postulé pour le poste de {{ job.name }} :</h4>
-                <button>accepter</button> <button>refuser</button>
+                <a class="btn btn-success" href="{{ path('projet_voxel_emploi_validate', {'id':job.id, 'appliantId':appliant.id}) }}" >accepter</a> <a class="btn btn-danger" href="{{ path('projet_voxel_emploi_refuse', {'id':job.id, 'appliantId':appliant.id}) }}">refuser</a>
             {% endfor %}
         {% endfor %}
         </div>

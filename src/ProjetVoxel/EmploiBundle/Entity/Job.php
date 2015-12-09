@@ -212,5 +212,12 @@ class Job
     public function setEmployee($employee){
         $this->employee = $employee;
     }
+
+    public function getAppliantById($appliantId){
+
+        foreach ($type as $this->getappliant())
+        { if ($type->getid()  == $appliantId) {return $type ;}}
+        return null;
+    }
 }
 

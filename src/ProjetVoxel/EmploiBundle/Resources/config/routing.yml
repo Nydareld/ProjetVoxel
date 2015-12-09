@@ -29,3 +29,11 @@ projet_voxel_emploi_jobDetails:
 projet_voxel_emploi_apply:
     path: /job/{id}/apply
     defaults: {_controller: ProjetVoxelEmploiBundle:Job:applyJob}
+
+projet_voxel_emploi_validate:
+    path: /job/{id}/{appliantId}/validate
+    defaults: {_controller: ProjetVoxelEmploiBundle:Job:ValidateAppliant}
+
+projet_voxel_emploi_refuse:
+  path: /job/{id}/{appliantId}/refuse
+  defaults: {_controller: ProjetVoxelEmploiBundle:Job:RefuseAppliant}
