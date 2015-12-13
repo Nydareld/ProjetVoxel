@@ -35,7 +35,7 @@ class CatalogueItem {
     /**
      * @var string
      *
-     * @ORM\Column(name="unit", type="string", length=255)
+     * @ORM\Column(name="unit", type="string", length=255, nullable=true)
      */
     protected $unit;
 
