@@ -97,4 +97,16 @@ class BankId
         }
     }
 
+    public function getOwnerType(){
+        if(null ==! $this->getUser() ){
+            return "user";
+        }
+        elseif(null ==! $this->getCompany() ) {
+            return "company";
+        }
+        else {
+            return null;
+        }
+    }
+
 }
