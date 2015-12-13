@@ -384,3 +384,11 @@ div.file-input{
 .editIcone i{
     color: #0066FF;
 }
+.editIcone.btn-default{
+    background-color: inherit;
+    color: inherit;
+}
+
+.editIcone.btn-default:hover{
+    border-color:  #0066FF;
+}
