@@ -1,0 +1,23 @@
+{% extends "ProjetVoxelVentesBundle::ventesLayout.html.twig" %}
+
+{% block title %}{{ parent() }} - catalogue{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    {% for catalogueItem in bankid.catalogue %}
+    <div class="col-md-9">
+        <h3>{{catalogueItem.name}}</h3>
+        
+        {{catalogueItem.type}}
+        {{catalogueItem.quantity}}
+        {{catalogueItem.unitPrice}}
+        <!-- Bloc Description-->
+    </div>
+
+    <div class="col-md-3">
+        <!-- Bloc ajout panier-->
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
