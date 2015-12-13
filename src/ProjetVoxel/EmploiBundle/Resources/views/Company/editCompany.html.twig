@@ -1,0 +1,29 @@
+{% extends "ProjetVoxelEmploiBundle::emploiLayout.html.twig" %}
+
+{% block title %}{{ parent() }} - édition de la compagnie {{ company.companyName}}{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+
+        <div class="col-md-6">
+            {{form(form)}}
+
+        <H2>liste des candidatures : </H2>
+
+        {% for job in company.ListOfJob %}
+            {% for appliant in job.appliant %}
+                <h4>{{ appliant.username }} a postulé pour le poste de {{ job.name }} :</h4>
+                <button>accepter</button> <button>refuser</button>
+            {% endfor %}
+        {% endfor %}
+        </div>
+        </div>
+
+
+        <div class="col-md-3">
+        </div>
+    </div>
+{% endblock %}

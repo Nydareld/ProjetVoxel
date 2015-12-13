@@ -25,3 +25,7 @@ projet_voxel_emploi_createJob:
 projet_voxel_emploi_jobDetails:
     path: /job/{id}
     defaults: {_controller: ProjetVoxelEmploiBundle:Job:jobDetails}
+
+projet_voxel_emploi_apply:
+    path: /job/{id}/apply
+    defaults: {_controller: ProjetVoxelEmploiBundle:Job:applyJob}

@@ -1,0 +1,7 @@
+projet_voxel_administrative_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ProjetVoxelAdministrativeBundle:Default:index }
+
+projet_voxel_administrative_shipRegister:
+    path: /shipRegister
+    defaults: { _controller : ProjetVoxelAdministrativeBundle:Ship:register}

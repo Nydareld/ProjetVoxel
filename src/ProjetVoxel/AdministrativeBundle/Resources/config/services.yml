@@ -1,0 +1,4 @@
+services:
+#    projet_voxel_administrative.example:
+#        class: ProjetVoxel\AdministrativeBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
