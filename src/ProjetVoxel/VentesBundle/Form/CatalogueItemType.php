@@ -21,13 +21,14 @@ class CatalogueItemType extends AbstractType
             ->add('unitPrice', 'integer', array(
                 'label' => 'Prix unitaire:'))
             ->add('quantity', 'integer', array(
-                'label' => 'quantitée en stock:'))
+                'label' => 'quantitée en stock ( -1 pour infinie ):'))
             ->add('unit', 'text', array(
+                'required' => false,
                 'label' => 'Unitée ( si objet non dénombrable ex : ressource en Kg/L ):'))
             ->add('type', 'choice', array(
                 'choices'  => array(
-                    'Service' => "service",
                     'Objet (objet simple ou composé ex : fer, vaisseau ... )' => "item",
+                    'Service' => "service",
                     ),
                 'label' => 'Type:',
                 'choices_as_values' => true))
