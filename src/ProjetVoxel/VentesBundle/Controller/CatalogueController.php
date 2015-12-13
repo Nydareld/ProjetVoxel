@@ -53,4 +53,14 @@ class CatalogueController extends Controller
             'form' => $form->createView(),
         ));
     }
+    
+    public function viewAction($bankId){
+        $bankId = $this->getDoctrine()->getManager()->getRepository('ProjetVoxelEconomyBundle:BankId')->findOneBy(array('id' => $bankId ));
+        $hasWright = $bankId->userHasWright($this->get('security.context')->getToken()->getUser());
+
+        return $this->render('ProjetVoxelVentesBundle:Catalogue:view.html.twig', array(
+            'bankid' => $bankId ,
+            'hasWright' => $hasWright,
+        ));
+    }
 }
