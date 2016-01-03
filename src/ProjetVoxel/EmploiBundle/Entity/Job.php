@@ -181,42 +181,54 @@ class Job
         return $this->dayOff;
     }
 
-    public function getCompany(){
+    public function getCompany()
+    {
         return $this->Company;
     }
 
-    public function setCompany($Company){
+    public function setCompany($Company)
+    {
         $this->Company = $Company;
     }
 
-    public function getAppliant(){
+    public function getAppliant()
+    {
         return $this->appliant;
     }
 
-    public function setAppliant($appliant){
+    public function setAppliant($appliant)
+    {
         $this->appliant = $appliant;
     }
 
-    public function getJobLeft(){
+    public function getJobLeft()
+    {
         return $this->jobLeft;
     }
 
-    public function setJobLeft($jobLeft){
+    public function setJobLeft($jobLeft)
+    {
         $this->jobLeft = $jobLeft;
     }
 
-    public function getEmployee(){
+    public function getEmployee()
+    {
         return $this->employee;
     }
 
-    public function setEmployee($employee){
+    public function setEmployee($employee)
+    {
         $this->employee = $employee;
     }
 
-    public function getAppliantById($appliantId){
+    public function getAppliantById($appliantId)
+    {
 
-        foreach ($type as $this->getappliant())
-        { if ($type->getid()  == $appliantId) {return $type ;}}
+        foreach ($this->getappliant() as $type) {
+            if ($type->getid() == $appliantId) {
+                return $type;
+            }
+        }
         return null;
     }
 }
