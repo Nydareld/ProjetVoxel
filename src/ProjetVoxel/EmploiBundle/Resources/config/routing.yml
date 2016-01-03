@@ -37,3 +37,15 @@ projet_voxel_emploi_validate:
 projet_voxel_emploi_refuse:
   path: /job/{id}/{appliantId}/refuse
   defaults: {_controller: ProjetVoxelEmploiBundle:Job:RefuseAppliant}
+
+projet_voxel_emploi_setManager:
+  path: /company/{id}/edit/{employeeId}/setManager
+  defaults: {_controller: ProjetVoxelEmploiBundle:Company:setManager}
+
+projet_voxel_emploi_setOwner:
+  path: /company/{id}/edit/{employeeId}/setOwner
+  defaults: {_controller: ProjetVoxelEmploiBundle:Company:setOwner}
+
+projet_voxel_emploi_revokeEmployee:
+  path: /company/{id}/edit/{employeeId}/revoke
+  defaults: {_controller: ProjetVoxelEmploiBundle:Company:revokeEmployee}
