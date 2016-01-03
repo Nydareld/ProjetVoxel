@@ -80,7 +80,7 @@ use Doctrine\ORM\Mapping as ORM;
      private $ownedShip;
 
      /**
-      * @ORM\OneToMany(targetEntity="Notif",mappedBy="user")
+      * @ORM\OneToMany(targetEntity="Notification",mappedBy="user")
       */
 
      private $notif;
