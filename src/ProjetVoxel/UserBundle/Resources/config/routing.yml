@@ -1,0 +1,3 @@
+projet_voxel_user_notif:
+    path: /notif/{id}
+    defaults: {_controller: ProjetVoxelUserBundle:Notif:notif}
