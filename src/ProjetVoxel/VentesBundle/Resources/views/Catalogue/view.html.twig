@@ -12,7 +12,7 @@
     <div class="col-md-3 avatar-profile">
         <img src="{{user.webPath}}" alt="..." class="">
     </div>
-    <div class="col-md-9 userCard img">
+    <div class="col-md-9 userCard">
         {% else %}
         <div class="col-md-12 userCard">
             {% endif %}
@@ -32,7 +32,7 @@
     <div class="col-md-3 avatar-profile">
         <img src="{{company.webPath}}" alt="..." class="">
     </div>
-    <div class="col-md-9 userCard img">
+    <div class="col-md-9 userCard">
         {% else %}
         <div class="col-md-12 userCard">
             {% endif %}
@@ -50,19 +50,54 @@
 <!-- Un encadré pour l'owner -->
 <!-- une liste de catalogueItem -->
 
-                <div class="row">
-                    {% for catalogueItem in bankid.catalogue %}
-                    <div class="col-md-9">
-                        <h3>{{catalogueItem.name}}</h3>
-
-                        {{catalogueItem.type}}
-                        {{catalogueItem.quantity}}
-                        {{catalogueItem.unitPrice}}
-                        <!-- Bloc Description-->
+                <div class="row" id="catalogueTable">
+                    <div class="col-md-12 row tableHead tableCell">
+                            <div class="col-md-4 tableCell">
+                                <h3>Nom</h3>
+                            </div>
+                            <div class="col-md-2 tableCell">
+                                <h4>Type</h4>
+                            </div>
+                            <div class="col-md-2 tableCell">
+                                <h4>En stock</h4>
+                            </div>
+                            <div class="col-md-2 tableCell">
+                                <h4>Unité</h4>
+                            </div>
+                            <div class="col-md-2 tableCell">
+                                <h4>Prix</h4>
+                            </div>
                     </div>
+                    {% for catalogueItem in bankid.catalogue %}
 
-                    <div class="col-md-3">
-                        <!-- Bloc ajout panier-->
+                    {% if loop.index is divisible by(2) %}
+                        {% set class = "tablePaire" %}
+                    {% else %}
+                        {% set class = "tableImpaire" %}
+                    {% endif %}
+
+                    <div class="col-md-12 row tableBody tableCell {{class}}">
+                            <div class="col-md-4 tableCell">
+                                <h3>
+                                    <a>{{catalogueItem.name}}</a>
+                                </h3>
+                            </div>
+                            <div class="col-md-2 tableCell">
+                                <h4>{{catalogueItem.type}}</h4>
+                            </div>
+                            <div class="col-md-2 tableCell">
+                                {% if catalogueItem.quantity < 0 %}
+                                    <h4>ilimité</h4>
+                                {% else %}
+                                    <h4>{{catalogueItem.quantity}}</h4>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-2 tableCell">
+                                <h4>{{catalogueItem.unit}}</h4>
+                            </div>
+                            <div class="col-md-2 tableCell">
+                                <h4>{{catalogueItem.unitPrice}}</h4>
+                            </div>
                     </div>
                     {% endfor %}
                 </div>

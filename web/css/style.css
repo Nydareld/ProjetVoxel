@@ -400,3 +400,27 @@ div.file-input{
    top: -10px;
    left: -7px;
 }
+
+#catalogueTable{
+    border: 4px #0066FF solid;
+    border-radius: 5px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+div.row.tableCell{
+    margin: 0px;
+}
+.tableHead{
+    background-color: #333;
+    color: #BBB;
+}
+.tablePaire{
+    background-color: #666;
+}
+.tableImpaire{
+    background-color: #888;
+}
+.tableBody >div > h3 > a{
+    color: #444;
+}
