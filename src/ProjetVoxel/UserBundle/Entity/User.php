@@ -109,6 +109,14 @@ use Doctrine\ORM\Mapping as ORM;
          $this->job = $job;
      }
 
+     public function getNotif(){
+         return $this->notif;
+     }
+
+     public function setNotif($notif){
+         $this->notif = $notif;
+     }
+
      public function getJobApply(){
          return $this->jobApply;
      }
