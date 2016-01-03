@@ -11,6 +11,23 @@
         <div class="col-md-6">
             {{form(form)}}
 
+         <h2>Liste des employés :</h2>
+         {% for job in company.ListOfJob %}
+            {% for employee in job.employee %}
+                <h4>{{ employee.username }} : {{ job.name }}</h4>
+                <div class="btn-group">
+                    {% if employee.username != connectedManager %}
+                     <a href="{{ path('projet_voxel_emploi_setManager', {'id': company.id, 'employeeId':employee.id}) }}" class="btn btn-success">promote</a>
+                    {% endif %}
+                    {% if isOwner %}
+                     <a href="{{ path('projet_voxel_emploi_setOwner', {'id': company.id, 'employeeId':employee.id}) }}" class="btn btn-info">sell</a>
+                    {% endif %}
+                    <a href="{{ path('projet_voxel_emploi_revokeEmployee', {'id': company.id, 'employeeId': employee.id}) }}" class="btn btn-danger">revoke</a>
+                </div>
+            {% endfor %}
+         {% endfor %}
+
+
         <H2>liste des candidatures : </H2>
 
         {% for job in company.ListOfJob %}
