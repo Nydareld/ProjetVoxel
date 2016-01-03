@@ -11,6 +11,7 @@
 </head>
 <body>
     <header>
+        {% set notifs = app.user.notif %}
 	    <img id="banniere" class="header-logo" src="{{ app.request.basepath }}/img/Logos/fond.gif" style="width: 1400px;"></img>
         <img id="banniere" class="header-logo" src="{{ app.request.basepath }}/img/Logos/LogotransparantWhite.png"></img>
         <div id="bandeauCo">
@@ -28,8 +29,11 @@
             </div>
             <a href="{{ path('fos_user_profile_show')}}" class="pathUserProfile">{{ app.user.username }}</a>
             <div class="iconesUser">
-                <a href="{# Path Notif #}#">
+                <a data-toggle="modal" data-target="#myModal">
                     <i id="social" class="fa fa-bell fa-lg"></i>
+                    {% if app.user.notif|length > 0 %}
+                        <span class="badge badge-notify">{{ notifs|length }}</span>
+                    {% endif %}
                 </a>
                 <a href="{# Path Mess #}#">
                     <i id="social" class="fa fa-envelope fa-lg"></i>
@@ -78,8 +82,11 @@
             </div>
             <a href="{{ path('fos_user_profile_show')}}" class="pathUserProfile">{{ app.user.username }}</a>
             <div class="iconesUser">
-                <a href="{# Path Notif #}#">
+                <a data-toggle="modal" data-target="#myModal">
                     <i id="social" class="fa fa-bell fa-lg"></i>
+                    {% if app.user.notif|length > 0 %}
+                        <span class="badge badge-notify">{{ notifs|length }}</span>
+                    {% endif %}
                 </a>
                 <a href="{# Path Mess #}#">
                     <i id="social" class="fa fa-envelope fa-lg"></i>
@@ -169,6 +176,31 @@
     </script>
     {% block js %}
     {% endblock %}
+
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Notifications</h4>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                    {% for notif in app.user.notif %}
+                    <a href="{{ path('projet_voxel_user_notif', {'id':notif.id} ) }}">
+                        <li>{{ notif.message }}</li>
+                    </a>
+                    {% endfor %}
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 
 </body>
 </html>

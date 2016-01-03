@@ -392,3 +392,11 @@ div.file-input{
 .editIcone.btn-default:hover{
     border-color:  #0066FF;
 }
+
+.badge-notify{
+   background:red;
+   position:relative;
+   margin: -8px;
+   top: -10px;
+   left: -7px;
+}
