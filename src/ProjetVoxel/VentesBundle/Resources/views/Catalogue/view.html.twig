@@ -79,7 +79,7 @@
                     <div class="col-md-12 row tableBody tableCell {{class}}">
                             <div class="col-md-4 tableCell">
                                 <h3>
-                                    <a>{{catalogueItem.name}}</a>
+                                    <a href="{{ path('projet_voxel_ventes_a_catalogue_item', {'bankId':bankid.id , 'catalogueItemId':catalogueItem.id } ) }}">{{catalogueItem.name}}</a>
                                 </h3>
                             </div>
                             <div class="col-md-2 tableCell">
