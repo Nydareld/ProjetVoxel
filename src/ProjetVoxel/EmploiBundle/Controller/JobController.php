@@ -5,8 +5,10 @@ namespace ProjetVoxel\EmploiBundle\Controller;
 use ProjetVoxel\EmploiBundle\Form\JobType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use ProjetVoxel\EmploiBundle\Entity\Job;
+use ProjetVoxel\UserBundle\Entity\User;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Validator\Constraints\IsNull;
 
 
 class JobController extends Controller
@@ -58,8 +60,6 @@ class JobController extends Controller
 
         $job = $this->getDoctrine()->getManager()->getRepository('ProjetVoxelEmploiBundle:Job')->findOneBy(array('id' => $id));
         $user = $this->get('security.context')->getToken()->getUser();
-        $appliant = true;
-        $employee = false;
         /*
             TO-DO : Add Notif
          */
@@ -70,6 +70,42 @@ class JobController extends Controller
         $em->persist($user);
         $em->flush();
 
-        return $this->render('ProjetVoxelEmploiBundle:Job:JobDetails.html.twig', array('job' => $job,  'employee' => $employee, 'appliant' => $appliant));
+        return $this->redirect($this->generateUrl('projet_voxel_emploi_jobDetails', array('id' => $job->getId())));
+    }
+
+    public function validateAppliantAction($id, $appliantId){
+
+        $job = $this->getDoctrine()->getManager()->getRepository('ProjetVoxelEmploiBundle:Job')->findOneBy(array('id' => $id));
+        $user = $job->getAppliantById($appliantId);
+        $company = $job->getCompany();
+
+        $user->setJob($job);
+        $user->setJobApply(null);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('projet_voxel_emploi_editEntreprise', array('id' => $company->getId())));
+
+
+    }
+
+    public function refuseAppliantAction($id, $appliantId){
+
+        $job = $this->getDoctrine()->getManager()->getRepository('ProjetVoxelEmploiBundle:Job')->findOneBy(array('id' => $id));
+        $user = $job->getAppliantById($appliantId);
+        $company = $job->getCompany();
+
+
+
+        $user->setJobApply(null);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('projet_voxel_emploi_editEntreprise', array('id' => $company->getId())));
+
     }
 }

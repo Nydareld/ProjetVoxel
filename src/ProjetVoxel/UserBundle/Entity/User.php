@@ -79,11 +79,13 @@ use Doctrine\ORM\Mapping as ORM;
       */
      private $ownedShip;
 
+
      /**
       * @ORM\OneToMany(targetEntity="Notification",mappedBy="user")
       */
 
      private $notif;
+
 
     /**
      * Get id
