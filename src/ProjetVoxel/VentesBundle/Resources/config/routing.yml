@@ -9,3 +9,7 @@ projet_voxel_ventes_add_catalogue_item:
 projet_voxel_ventes_catalogue:
     path: /{bankId}/catalogue
     defaults: { _controller: ProjetVoxelVentesBundle:Catalogue:view }
+
+projet_voxel_ventes_a_catalogue_item:
+    path: /{bankId}/catalogue/item/{catalogueItemId}
+    defaults: { _controller: ProjetVoxelVentesBundle:Catalogue:aCatalogueItem }
