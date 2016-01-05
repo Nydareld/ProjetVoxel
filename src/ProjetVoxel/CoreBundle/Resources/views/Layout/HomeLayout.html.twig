@@ -11,11 +11,11 @@
 </head>
 <body>
     <header>
-        {% set notifs = app.user.notif %}
 	    <img id="banniere" class="header-logo" src="{{ app.request.basepath }}/img/Logos/fond.gif" style="width: 1400px;"></img>
         <img id="banniere" class="header-logo" src="{{ app.request.basepath }}/img/Logos/LogotransparantWhite.png"></img>
         <div id="bandeauCo">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            {% set notifs = app.user.notif %}
             <div class="imgProfilNav">
                 {% if app.user.path is not null %}
                 <a>
@@ -176,7 +176,7 @@
     </script>
     {% block js %}
     {% endblock %}
-
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
     <div id="myModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -201,6 +201,6 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
-
+{% endif %}
 </body>
 </html>
