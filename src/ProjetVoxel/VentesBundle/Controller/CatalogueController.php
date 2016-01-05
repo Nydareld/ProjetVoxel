@@ -53,7 +53,7 @@ class CatalogueController extends Controller
             'form' => $form->createView(),
         ));
     }
-    
+
     public function viewAction($bankId){
         $bankId = $this->getDoctrine()->getManager()->getRepository('ProjetVoxelEconomyBundle:BankId')->findOneBy(array('id' => $bankId ));
         $hasWright = $bankId->userHasWright($this->get('security.context')->getToken()->getUser());
@@ -62,5 +62,23 @@ class CatalogueController extends Controller
             'bankid' => $bankId ,
             'hasWright' => $hasWright,
         ));
+    }
+    public function aCatalogueItemAction($bankId, $catalogueItemId){
+
+        $em = $this->getDoctrine()->getManager();
+
+        $bankid = $em->getRepository('ProjetVoxelEconomyBundle:BankId')->findOneBy(array('id' => $bankId ));
+        $catalogueItem = $em->getRepository('ProjetVoxelVentesBundle:CatalogueItem')->findOneBy(array('id' => $catalogueItemId ));
+
+        if( $catalogueItem->getBankId() !== $bankid ){
+            throw new Exception("Cet article ne coresspond pas a cet identitée bancaire", 1);
+        }
+
+        return $this->render('ProjetVoxelVentesBundle:Catalogue:anItem.html.twig', array(
+            //'form' => $form->createView(),
+            'bankid' => $bankid,
+            'catalogueItem' => $catalogueItem
+        ));
+
     }
 }
