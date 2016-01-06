@@ -1,0 +1,67 @@
+{% extends "ProjetVoxelVentesBundle::ventesLayout.html.twig" %}
+
+{% block title %}{{ parent() }} - catalogue{% endblock %}
+
+{% block body %}
+
+{% if bankid.ownerType == "user" %}
+{% set user = bankid.user %}
+
+<div class="fos_user_user_show row">
+    {% if user.path is not null %}
+    <div class="col-md-3 avatar-profile">
+        <img src="{{user.webPath}}" alt="..." class="">
+    </div>
+    <div class="col-md-9 userCard">
+        {% else %}
+        <div class="col-md-12 userCard">
+            {% endif %}
+            <h2>Catalogue de l'ingénieur {{ user.username }}
+            </h2>
+            <div class="userCardContent">
+
+
+{% elseif bankid.OwnerType == "company" %}
+{% set company = bankid.company %}
+
+<div class="fos_user_user_show row">
+    {% if company.path is not null %}
+    <div class="col-md-3 avatar-profile">
+        <img src="{{company.webPath}}" alt="..." class="">
+    </div>
+    <div class="col-md-9 userCard">
+        {% else %}
+        <div class="col-md-12 userCard">
+            {% endif %}
+            <h2>Catalogue de l'entreprise {{ company.companyName }}
+            </h2>
+            <div class="userCardContent">
+
+{% endif %}
+    <h3>Nom : {{catalogueItem.name}}<h3>
+    <h4>Type : {{catalogueItem.type}}</h4>
+    {% if catalogueItem.quantity < 0 %}
+        <h4>Quantité ilimité</h4>
+    {% else %}
+        <h4>En stock : {{catalogueItem.quantity}}</h4>
+    {% endif %}
+    <h4>Unité : {{catalogueItem.unit}}</h4>
+    <h4>Prix unitaire : {{catalogueItem.unitPrice}}</h4>
+
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+
+        <div class="col-md-6">
+            {{form(form)}}
+        </div>
+
+        <div class="col-md-3">
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
