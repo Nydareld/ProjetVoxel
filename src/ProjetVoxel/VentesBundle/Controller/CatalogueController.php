@@ -7,7 +7,9 @@ use Symfony\Component\Security\Acl\Exception\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use ProjetVoxel\VentesBundle\Entity\CatalogueItem;
+use ProjetVoxel\VentesBundle\Entity\BasketItem;
 use ProjetVoxel\VentesBundle\Form\CatalogueItemType;
+use ProjetVoxel\VentesBundle\Form\BasketItemType;
 
 class CatalogueController extends Controller
 {
@@ -74,8 +76,28 @@ class CatalogueController extends Controller
             throw new Exception("Cet article ne coresspond pas a cet identitée bancaire", 1);
         }
 
+        $request = $this->get('request');
+        $ajoutAuPanier = new BasketItem();
+        $form = $this->get('form.factory')->create(new BasketItemType(), $ajoutAuPanier);
+
+        if ($form->handleRequest($request)->isValid()) {
+
+            $user = $this->get('security.context')->getToken()->getUser();
+
+            $ajoutAuPanier->setBankId($user->getBankId());
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($ajoutAuPanier);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('success', 'Entitée bien ajoutée au panier');
+
+            return $this->redirect($this->generateUrl('projet_voxel_ventes_a_catalogue_item', array('bankId' => $bankId, 'catalogueItemId' => $catalogueItemId)));
+
+        }
+
         return $this->render('ProjetVoxelVentesBundle:Catalogue:anItem.html.twig', array(
-            //'form' => $form->createView(),
+            'form' => $form->createView(),
             'bankid' => $bankid,
             'catalogueItem' => $catalogueItem
         ));
