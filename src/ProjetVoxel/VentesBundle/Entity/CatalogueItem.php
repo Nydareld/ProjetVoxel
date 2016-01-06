@@ -73,6 +73,11 @@ class CatalogueItem {
      */
     protected $service;
 
+    /**
+     * @ORM\OneToMany(targetEntity="ProjetVoxel\VentesBundle\Entity\BasketItem", mappedBy="catalogueItem")
+     */
+    private $inBasket;
+
     public function getId(){
         return $this->id;
     }

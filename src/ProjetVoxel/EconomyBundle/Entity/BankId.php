@@ -44,6 +44,11 @@ class BankId
     private $catalogue;
 
     /**
+     * @ORM\OneToMany(targetEntity="ProjetVoxel\VentesBundle\Entity\BasketItem", mappedBy="bankId")
+     */
+    private $basket;
+
+    /**
      * Get id
      *
      * @return integer
